@@ -7,35 +7,44 @@
 
 {{-- Hero Slider --}}
 @php
-$slides = [
-    [
-        'image' => 'assets/FotoHeroSection/AAI0008.jpg',
-        'medium_caption' => 'PT. ATLANTIC ALAM INDUSTRI',
-        'big_caption_1' => 'Engineering, Procurement &',
-        'big_caption_2' => 'Construction Company',
-        'small_caption' => 'Professional contractor services with commitment to quality and safety.<br>Delivering excellence in every project since establishment.',
-        'btn_text' => 'Explore More',
-        'btn_link' => '/about'
-    ],
-    [
-        'image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg',
-        'medium_caption' => 'Quality & Safety First',
-        'big_caption_1' => 'Committed To Superior',
-        'big_caption_2' => 'Quality And Results!',
-        'small_caption' => 'Ensuring work environment that motivates and supports all employees<br>without accidents and illness caused by work activities.',
-        'btn_text' => 'Our Services',
-        'btn_link' => '/service'
-    ],
-    [
-        'image' => 'assets/FotoHeroSection/IMG20201112114341.jpg',
-        'medium_caption' => 'Trusted Partner',
-        'big_caption_1' => 'Best National Scale',
-        'big_caption_2' => 'EPC Service Provider',
-        'small_caption' => 'Working with customers to understand their desires and help implement<br>the best Quality and HSE practices in construction services.',
-        'btn_text' => 'Contact Us',
-        'btn_link' => '/contact'
-    ]
-];
+$dbSliders = \App\Models\Slider::where('is_active', true)
+    ->orderBy('order')
+    ->take(3)
+    ->get()
+    ->map(function($slider) {
+        return [
+            'image' => $slider->image ? 'storage/' . $slider->image : 'assets/FotoHeroSection/AAI0008.jpg',
+            'medium_caption' => $slider->medium_caption,
+            'big_caption' => $slider->big_caption,
+            'small_caption' => $slider->small_caption,
+        ];
+    })
+    ->toArray();
+
+if (!empty($dbSliders)) {
+    $slides = $dbSliders;
+} else {
+    $slides = [
+        [
+            'image' => 'assets/FotoHeroSection/AAI0008.jpg',
+            'medium_caption' => 'PT. ATLANTIC ALAM INDUSTRI',
+            'big_caption' => 'Engineering, Procurement & Construction Company',
+            'small_caption' => 'Professional contractor services with commitment to quality and safety.<br>Delivering excellence in every project since establishment.'
+        ],
+        [
+            'image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg',
+            'medium_caption' => 'Quality & Safety First',
+            'big_caption' => 'Committed To Superior Quality And Results!',
+            'small_caption' => 'Ensuring work environment that motivates and supports all employees<br>without accidents and illness caused by work activities.'
+        ],
+        [
+            'image' => 'assets/FotoHeroSection/IMG20201112114341.jpg',
+            'medium_caption' => 'Trusted Partner',
+            'big_caption' => 'Best National Scale EPC Service Provider',
+            'small_caption' => 'Working with customers to understand their desires and help implement<br>the best Quality and HSE practices in construction services.'
+        ]
+    ];
+}
 @endphp
 <x-hero-slider :slides="$slides" />
 

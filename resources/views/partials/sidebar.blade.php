@@ -40,6 +40,15 @@
                 </a>
             </li>
 
+            <!-- Sliders -->
+            <li class="sidebar-item">
+                <a class="sidebar-link {{ request()->is('dashboard/sliders*') ? 'active' : '' }}"
+                    href="{{ route('dashboard.sliders.index') }}" aria-expanded="false">
+                    <i class="ti ti-pencil"></i>
+                    <span class="hide-menu">Sliders</span>
+                </a>
+            </li>
+
             <!-- Services -->
             <li class="sidebar-item">
                 <a class="sidebar-link {{ request()->is('dashboard/services*') ? 'active' : '' }}"

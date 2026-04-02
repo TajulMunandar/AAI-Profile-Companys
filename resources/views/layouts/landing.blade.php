@@ -49,6 +49,17 @@
                 right: 25px;
                 z-index: 1000;
             }
+            /* Slider Category Tag */
+            .slider-category {
+                display: inline-block;
+                background: #fdb900;
+                color: #222;
+                padding: 8px 20px;
+                font-size: 14px;
+                font-weight: 600;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+            }
         </style>
 
         @stack('css')

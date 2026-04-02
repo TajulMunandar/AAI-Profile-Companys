@@ -127,4 +127,5 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::resource('comments', CommentController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('kategoris', KategoriController::class);
+    Route::resource('sliders', \App\Http\Controllers\SliderController::class);
 });
