@@ -1,0 +1,209 @@
+/*======================================================
+    Media Query
+=======================================================*/
+/* max-width 1024px */
+@media (max-width: 1024px) {}
+
+/* max-width 992px */
+@media (max-width: 992px) {
+    .padding{ padding: 60px 0; }
+    .sm-padding{ padding: 15px; }
+    p br{ display: none; }
+    span br{ display: none; }
+    
+    .section-heading h2{
+        font-size: 32px;
+        line-height: 42px;
+    }
+    .section-heading p br{
+        display: block;
+    }
+    .about-icon{
+        position: inherit;
+        left: 0;
+        top: 0;
+        margin-bottom: 15px;
+    }
+    .about-content{padding-left: 0;}
+    .team-section-2{ padding-bottom: 60px; }
+    .team-section-2 .team-box{ margin-bottom: 0; }
+    
+    .subscribe-widget{ margin-top: 0; }
+    
+    .working-process .left-pattern,
+    .working-process .right-pattern{ background-size: 40%; }
+    .working-process-box .arrow{ display: none; }
+    .skills-section .play-btn{ display: none; }
+    
+    .hero-section-2:before,
+    .hero-section:before{
+        visibility: visible;
+        opacity: 1;
+    }
+    .hero-section-2 .play-btn {
+        right: 15%;
+        top: 70%;
+    }
+    .sign img {
+        padding-left: 10px;
+        max-width: 50%;
+    }
+    .faq-section:before{ width: 100%; }
+    .faq-content{padding-left: 0;}
+
+
+/* max-width 768px */
+@media all and (max-width: 768px) {
+    .padding{ padding: 60px 0; }
+    .xs-padding{ padding: 15px; }
+    p br{ display: none; }
+    
+    .section-heading p br{
+        display: none;
+    }
+    .footer-content .logo{ max-width: 50%; }
+    .testimonials-section .section-heading.pt-80{padding-top: 0;}
+    
+    .counter-wrapper{ 
+        margin-top: 0!important;
+    }
+    .hero-section:before{
+        visibility: visible;
+        opacity: 1;
+    }
+    .hero-content h2 {
+        font-size: 42px;
+        line-height: 48px;
+    }
+    .skills-info{
+        padding: 60px 15px;
+    }
+    .nav-style:hover .slick-arrow{
+        left: 0;
+    }
+    .nav-style:hover .slick-arrow.right{
+        left: auto;
+        right: 0;
+    }
+}
+
+/* max-width 580px */
+@media all and (max-width: 580px) {
+    #scrollup {
+        bottom: 20px;
+        right: 20px;
+    }
+    .padding{ padding: 50px 0;}
+    .testi-content{
+        padding-top: 110px;
+        padding-left: 0;
+    }
+}
+
+/* max-width 420px */
+@media all and (max-width: 420px) {
+    .section-heading{ margin-bottom: 20px; }
+    .section-heading h2 br{ display: none; }
+    .project-section{ padding-top: 50px; }
+    .skills-items .skills-item h5{ margin-bottom: 25px; }
+    .testi-content .quote-icon{ display: none; }
+    .hero-content h2 br{ display: none; }
+    .service-2 .service-item{ margin-bottom: 0; }
+    .info-section{ overflow: hidden; }
+}
+
+/* max-width 320px */
+@media (max-width: 320px) {
+    .padding{ padding: 50px 0; }
+}
+
+
+
+/*======================================================
+    Header Section
+=======================================================*/
+/* max-width 1024px */
+@media (max-width: 1024px) {}
+
+/* max-width 992px */
+@media (max-width: 992px) {}
+
+/* max-width 768px */
+@media all and (max-width: 768px) {}
+
+/* max-width 580px */
+@media all and (max-width: 580px) {}
+
+/* max-width 420px */
+@media all and (max-width: 420px) {}
+
+/* max-width 320px */
+@media (max-width: 320px) {}
+
+/*======================================================
+    Main Slider
+=======================================================*/
+/* max-width 1024px */
+@media (max-width: 1024px) {}
+
+/* max-width 992px */
+@media (max-width: 992px){}
+
+/* max-width 768px */
+@media all and (max-width: 768px) {}
+
+/* max-width 580px */
+@media all and (max-width: 580px) {}
+
+/* max-width 420px */
+@media all and (max-width: 420px) {}
+
+/* max-width 320px */
+@media (max-width: 320px) {}
+
+
+/*======================================================
+    Hero Section
+=======================================================*/
+/* max-width 1024px */
+@media (max-width: 1024px) {}
+
+/* max-width 992px */
+@media (max-width: 992px){}
+
+/* max-width 768px */
+@media all and (max-width: 768px) {}
+
+/* max-width 580px */
+@media all and (max-width: 580px) {}
+
+/* max-width 420px */
+@media all and (max-width: 420px) {}
+
+/* max-width 320px */
+@media (max-width: 320px) {}
+
+
+
+/*======================================================
+    Service Section
+=======================================================*/
+/* max-width 1024px */
+@media (max-width: 1024px) {}
+
+/* max-width 992px */
+@media (max-width: 992px){}
+
+/* max-width 768px */
+@media all and (max-width: 768px) {}
+
+/* max-width 580px */
+@media all and (max-width: 580px) {}
+
+/* max-width 420px */
+@media all and (max-width: 420px) {}
+
+/* max-width 320px */
+@media (max-width: 320px) {}
+
+

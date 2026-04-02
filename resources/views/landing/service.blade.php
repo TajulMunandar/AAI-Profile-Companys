@@ -1,0 +1,83 @@
+@extends('layouts.landing')
+
+@section('title', 'Our Services - AAI Profile')
+@section('meta_description', 'Our Services - Industrial Construction Solutions')
+
+@section('content')
+
+{{-- Page Header --}}
+<section class="page-header padding" style="background-image: url('{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}'); background-size: cover; background-position: center;">
+   <div class="overlay"></div>
+    <div class="container">
+       <div class="section-heading mt-40 text-center">
+            <h4 class="sub-heading">Our Services</h4>
+            <h2>High Quality Construction Solutions <br>For Residentials & <span>Industries!</span></h2>
+            <p>Construction is a general term meaning the art and science to <br>form objects systems organizations.</p>
+        </div><!-- /.section-heading -->
+    </div>
+</section><!-- /.page-header -->
+
+{{-- Service Section --}}
+@php
+$services = \App\Models\Service::all()->map(function($service) {
+    return [
+        'image' => $service->image ? 'storage/' . $service->image : 'landing-assets/img/post-4-768x512.jpg',
+        'icon' => $service->icon ?? 'dl dl-factory-1',
+        'title' => $service->title,
+        'description' => Str::limit(strip_tags($service->description), 100),
+        'link' => url('/service/' . $service->slug)
+    ];
+})->toArray();
+
+if (empty($services)) {
+    $services = [
+        ['image' => 'landing-assets/img/post-4-768x512.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Automobile & Manufacturing', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
+        ['image' => 'landing-assets/img/post-3-768x512.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Mechanical Engineering', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
+        ['image' => 'landing-assets/img/post-8-768x512.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Oil Gas & Power Plant', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
+        ['image' => 'landing-assets/img/post-1-768x512.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Steel & Metal Works', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
+        ['image' => 'landing-assets/img/post-2-768x512.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Electrical Engineering', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
+        ['image' => 'landing-assets/img/post-5-768x512.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Chemical Processing', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#']
+    ];
+}
+@endphp
+<x-service-section
+    subHeading="What We Offer"
+    title="Comprehensive Industrial <br>& <span>Construction Services!</span>"
+    description="PT. ATLANTIC ALAM INDUSTRI provides comprehensive construction and engineering services."
+    :services="$services"
+/>
+
+{{-- CTA Section --}}
+<section class="cta-section padding">
+   <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 offset-lg-3">
+                <div class="cta-content text-center">
+                    <div class="section-heading text-center">
+                        <h4 class="sub-heading">Contact Us</h4>
+                        <h2>Trusted By More Than 650,000 <br>Happy<span> Peoples!</span></h2>
+                        <p>Construction is a general term meaning the art and science to <br>form objects systems organizations.</p>
+                    </div><!-- /.section-heading -->
+                    <a href="{{ url('/contact') }}" class="default-btn">Get a free quote <span></span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- ./ cta section -->
+
+{{-- Sponsor Section --}}
+@php
+$sponsors = [
+    ['image' => 'landing-assets/img/sponsor-1.png'],
+    ['image' => 'landing-assets/img/sponsor-2.png'],
+    ['image' => 'landing-assets/img/sponsor-3.png'],
+    ['image' => 'landing-assets/img/sponsor-4.png'],
+    ['image' => 'landing-assets/img/sponsor-5.png'],
+    ['image' => 'landing-assets/img/sponsor-6.png'],
+    ['image' => 'landing-assets/img/sponsor-3.png']
+];
+@endphp
+<x-sponsor-section :sponsors="$sponsors" />
+
+@endsection
