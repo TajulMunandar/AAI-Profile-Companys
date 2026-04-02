@@ -77,7 +77,7 @@
         @include('partials.landing-footer')
 
         {{-- Floating Buttons --}}
-        <a href="https://wa.me/6264541042" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat on WhatsApp">
+        <a href="https://wa.me/6285277801778" target="_blank" rel="noopener noreferrer" class="whatsapp-float" title="Chat on WhatsApp">
             <i class="fab fa-whatsapp"></i>
         </a>
 

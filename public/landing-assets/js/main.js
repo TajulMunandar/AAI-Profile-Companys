@@ -138,8 +138,8 @@
             doAnimations($animatingElements);
         });
         $('#main-slider').slick({
-            autoplay: false,
-            autoplaySpeed: 10000,
+            autoplay: true,
+            autoplaySpeed: 3000,
             dots: true,
             fade: true,
             prevArrow: '<div class="slick-prev"><i class="las la-long-arrow-alt-left"></i></div>',

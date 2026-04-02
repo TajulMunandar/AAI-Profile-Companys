@@ -5,8 +5,8 @@
 @section('content')
 <div class="col-xl-7 col-xxl-8">
     <a href="{{ url('/') }}" class="text-nowrap logo-img d-block px-4 py-9 w-100">
-        <img src="{{ asset('assets/logo website aai.png') }}" class="dark-logo" alt="Logo-Dark" width="200" />
-        <img src="{{ asset('assets/logo website aai.png') }}" class="light-logo" alt="Logo-light" width="200" />
+        <img src="{{ asset('assets/logowebsiteaai.png') }}" class="dark-logo" alt="Logo-Dark" width="200" />
+        <img src="{{ asset('assets/logowebsiteaai.png') }}" class="light-logo" alt="Logo-light" width="200" />
     </a>
     <div class="d-none d-xl-flex align-items-center justify-content-center h-n80">
         <img src="{{ asset('assets/images/backgrounds/login-security.svg') }}" alt="modernize-img" class="img-fluid" width="500">
