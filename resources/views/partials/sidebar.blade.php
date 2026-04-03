@@ -119,6 +119,15 @@
                 </a>
             </li>
 
+            <!-- Equipment -->
+            <li class="sidebar-item">
+                <a class="sidebar-link {{ request()->is('dashboard/equipment*') ? 'active' : '' }}"
+                    href="{{ route('dashboard.equipment.index') }}" aria-expanded="false">
+                    <i class="ti ti-truck"></i>
+                    <span class="hide-menu">Heavy Equipment</span>
+                </a>
+            </li>
+
             <!-- Users -->
             <li class="sidebar-item">
                 <a class="sidebar-link {{ request()->is('dashboard/users*') ? 'active' : '' }}"

@@ -315,43 +315,37 @@
 
         /* ======= Sponsor Carousel ======= */
         $('.sponsor-carousel').slick({
-            dots: true,
-            infinite: false,
-            speed: 300,
+            dots: false,
+            infinite: true,
+            speed: 2000,
             slidesToShow: 6,
-            slidesToScroll: 6,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 0,
+            cssEase: 'linear',
+            pauseOnFocus: false,
+            pauseOnHover: false,
             prevArrow: '<i class="fa fa-chevron-left left"></i>',
             nextArrow: '<i class="fa fa-chevron-right right"></i>',
-            infinite: true,
-            dots: false,
-            pauseOnFocus: false,
-            pauseOnHover: true,
             responsive: [{
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 6,
-                        slidesToScroll: 6,
-                    }
-                },
-                {
-                    breakpoint: 992,
-                    settings: {
                         slidesToShow: 4,
-                        slidesToScroll: 4
+                        slidesToScroll: 1,
                     }
                 },
                 {
-                    breakpoint: 767,
+                    breakpoint: 768,
                     settings: {
-                        slidesToShow: 1,
+                        slidesToShow: 3,
                         slidesToScroll: 1
                     }
                 },
                 {
-                    breakpoint: 580,
+                    breakpoint: 480,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll: 1
                     }
                 }
             ]

@@ -16,22 +16,15 @@
                     <label for="title" class="form-label">Title</label>
                     <input type="text" class="form-control" id="title" name="title" value="{{ $project->title }}" required>
                 </div>
+                <div class="col-md-6 mb-3">
+                    <label for="client_name" class="form-label">Client Name</label>
+                    <input type="text" class="form-control" id="client_name" name="client_name" value="{{ $project->client_name }}" required>
+                </div>
             </div>
 
             <div class="mb-3">
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="4" required>{{ $project->description }}</textarea>
-            </div>
-
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <label for="client_name" class="form-label">Client Name</label>
-                    <input type="text" class="form-control" id="client_name" name="client_name" value="{{ $project->client_name }}" required>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label for="project_type" class="form-label">Project Type</label>
-                    <input type="text" class="form-control" id="project_type" name="project_type" value="{{ $project->project_type }}" required>
-                </div>
             </div>
 
             <div class="row">
@@ -50,11 +43,6 @@
                     <label for="project_director" class="form-label">Project Director <span class="text-muted">(Opsional)</span></label>
                     <input type="text" class="form-control" id="project_director" name="project_director" value="{{ $project->project_director }}">
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label for="date" class="form-label">Date</label>
-                    <input type="date" class="form-control" id="date" name="date" value="{{ $project->date }}" required>
-                </div>
-            </div>
                 <div class="col-md-6 mb-3">
                     <label for="date" class="form-label">Date</label>
                     <input type="date" class="form-control" id="date" name="date" value="{{ $project->date }}" required>

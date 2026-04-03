@@ -11,6 +11,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\EquipmentController;
 use App\Models\User;
 use App\Models\Project;
 use App\Models\Client;
@@ -53,6 +54,11 @@ Route::get('/contact', function () {
     return view('landing.contact');
 });
 Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
+
+Route::get('/equipment', function () {
+    $equipment = \App\Models\Equipment::where('is_active', true)->orderBy('order')->get();
+    return view('landing.equipment', compact('equipment'));
+});
 
 Route::get('/pricing', function () {
     return view('landing.pricing');
@@ -128,4 +134,5 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::resource('contacts', ContactController::class);
     Route::resource('kategoris', KategoriController::class);
     Route::resource('sliders', \App\Http\Controllers\SliderController::class);
+    Route::resource('equipment', EquipmentController::class);
 });

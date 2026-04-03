@@ -93,6 +93,37 @@ if (empty($services)) {
     :services="$services"
 />
 
+{{-- Vehicle & Heavy Equipment Section --}}
+@php
+$vehicles = \App\Models\Equipment::where('is_active', true)->orderBy('order')->take(6)->get();
+@endphp
+
+<section class="vehicle-section padding" style="background: #f8f9fa;">
+    <div class="container">
+        <div class="section-heading mb-40 text-center">
+            <h4 class="sub-heading">Our Equipment</h4>
+            <h2>Vehicle & <span>Heavy Equipment</span></h2>
+        </div>
+        <div class="row">
+            @foreach($vehicles as $vehicle)
+            <div class="col-lg-2 col-md-4 col-6">
+                <div style="text-align: center; margin-bottom: 20px;">
+                    @if($vehicle->image)
+                    <img src="{{ asset('storage/' . $vehicle->image) }}" alt="{{ $vehicle->title }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
+                    @else
+                    <img src="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}" alt="{{ $vehicle->title }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
+                    @endif
+                    <h5 style="font-size: 14px; font-weight: 600;">{{ $vehicle->title }}</h5>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <div class="text-center mt-4">
+            <a href="{{ url('/equipment') }}" class="default-btn">View More <span></span></a>
+        </div>
+    </div>
+</section>
+
 {{-- Project Section --}}
 @php
 $projects = \App\Models\Project::latest()->take(5)->get()->map(function($project) {

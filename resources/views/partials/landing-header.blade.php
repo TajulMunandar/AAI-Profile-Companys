@@ -4,7 +4,7 @@
             <div class="top-bar-inner">
                 <div class="top-left">
                     <ul>
-                        <li>Phone: <a href="tel:085277801778">085277801778</a></li>
+                        <li>Phone: <a href="tel:+6264541042">+62 645 41042</a></li>
                         <li>Email: <a href="mailto:atlanticalamindustri@aaipt.co.id">atlanticalamindustri@aaipt.co.id</a></li>
                     </ul>
                 </div>
@@ -48,6 +48,7 @@
                             <ul>
                                 <li><a href="{{ url('/about') }}">About Us</a></li>
                                 <li><a href="{{ url('/company-service') }}">Company Service</a></li>
+                                <li><a href="{{ url('/equipment') }}">Heavy Equipment</a></li>
                             </ul>
                         </li>
                         <li><a href="{{ url('/project-4-col') }}">Projects</a></li>

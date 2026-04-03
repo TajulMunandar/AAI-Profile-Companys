@@ -18,22 +18,37 @@
 </section><!-- /.page-header -->
 
 {{-- About Section --}}
-@php
-$aboutLists = [
-    ['icon' => 'dl dl-levels', 'title' => 'Our Mission', 'description' => 'Ensure a work environment that motivates and supports all employees without accidents. Work with customers to implement best Quality and HSE practices in construction services.'],
-    ['icon' => 'dl dl-industrial-robot-8', 'title' => 'Our Vision', 'description' => 'Becoming the Best National Scale Engineering, Procurement and Construction (EPC) Service in the Field of General Contractors.']
-];
-@endphp
-<x-about-section
-    title="We're Building Everything Best <br>That You <span>Needed!</span>"
-    description="PT. ATLANTIC ALAM INDUSTRI is committed to delivering quality construction services with safety as our top priority."
-    :lists="$aboutLists"
-    btnText="More about us"
-    btnLink="/about"
-    image="assets/FotoHeroSection/IMG20201112114341.jpg"
-    signImage="landing-assets/img/sign.png"
-    expText="25 Years Of <br>Experiences"
-/>
+<section class="about-section padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading mb-40 text-center">
+                    <h2>We're Building Everything Best <br>That You <span>Needed!</span></h2>
+                    <p>PT. ATLANTIC ALAM INDUSTRI is committed to delivering quality construction services with safety as our top priority.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="vision-mission-card" style="background: #f8f9fa; padding: 30px; border-radius: 10px; height: 100%;">
+                    <h3 style="color: #f77f00; margin-bottom: 20px; font-weight: 700;">Our Vision</h3>
+                    <p style="font-size: 16px; line-height: 1.8; color: #555;">Becoming the Best National Scale Engineering, Procurement and Construction (EPC) Service in the Field of General Contractors.</p>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="vision-mission-card" style="background: #f8f9fa; padding: 30px; border-radius: 10px; height: 100%;">
+                    <h3 style="color: #f77f00; margin-bottom: 20px; font-weight: 700;">Our Mission</h3>
+                    <p style="font-size: 15px; line-height: 1.8; color: #555; margin-bottom: 15px;">In carrying out its business activities, PT. ATLANTIC ALAM INDUSTRI has a goal:</p>
+                    <ol style="padding-left: 20px; color: #555;">
+                        <li style="margin-bottom: 10px;">Ensure a work environment that motivates and supports the efforts of all their employees without accidents and illness caused by work that comes from activities, services, products and facilities management systems that develop HSE performance continuously.</li>
+                        <li style="margin-bottom: 10px;">Work with customers to understand their desires and help implement the best Quality and HSE practices in designing and providing safe construction services and reliable construction services and also ensuring the provision of services that exceed or exceed customer expectations.</li>
+                        <li>Implement a broad management system that ensures the fulfillment of customer satisfaction, compliance with applicable regulations and other requirements and conducts periodic reviews of quality and HSE performance and its application.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {{-- Content Section --}}
 <section class="content-section padding">
@@ -44,7 +59,7 @@ $aboutLists = [
                 <div class="section-heading">
                     <h2>Construction Services With <br>Architectural <span>Expertise!</span></h2>
                     <p>PT. ATLANTIC ALAM INDUSTRI is committed to delivering quality construction services. We ensure customer satisfaction through professional project management and adherence to safety standards.</p>
-                    <a href="#" class="default-btn">Read more <span></span></a>
+                    <a href="/company-service" class="default-btn">Read more <span></span></a>
                 </div>
             </div>
             <div class="col-md-6 sm-padding">
@@ -57,8 +72,8 @@ $aboutLists = [
 </section><!-- ./ content-section-->
 
 {{-- CTA Section --}}
-<section class="cta-section padding">
-   <div class="overlay"></div>
+<section class="cta-section padding" style="background-image: url('{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}'); background-size: cover; background-position: center;">
+   <div class="overlay" style="background: rgba(0,0,0,0.7);"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">

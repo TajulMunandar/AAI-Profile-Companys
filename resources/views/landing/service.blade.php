@@ -48,8 +48,8 @@ if (empty($services)) {
 />
 
 {{-- CTA Section --}}
-<section class="cta-section padding">
-   <div class="overlay"></div>
+<section class="cta-section padding" style="background-image: url('{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}'); background-size: cover; background-position: center;">
+   <div class="overlay" style="background: rgba(0,0,0,0.7);"></div>
     <div class="container">
         <div class="row">
             <div class="col-lg-6 offset-lg-3">

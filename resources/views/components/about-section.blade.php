@@ -25,9 +25,9 @@
                     @if(isset($btnText) && isset($btnLink))
                     <a href="{{ url($btnLink) }}" class="default-btn">{{ $btnText }} <span></span></a>
                     @endif
-                    @if(isset($signImage))
+                    {{-- @if(isset($signImage))
                     <img src="{{ asset($signImage) }}" alt="sign">
-                    @endif
+                    @endif --}}
                 </div>
             </div>
             <div class="col-md-6 sm-padding wow fadeInRight" data-wow-delay="200ms">
