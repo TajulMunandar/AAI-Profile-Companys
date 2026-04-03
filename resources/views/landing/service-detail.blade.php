@@ -26,7 +26,7 @@
                 @if($service->image)
                 <img src="{{ asset('storage/' . $service->image) }}" alt="{{ $service->title }}" class="img-fluid rounded mb-4 w-100" style="max-height: 400px; object-fit: cover;">
                 @else
-                <img src="{{ asset('landing-assets/img/post-4-768x512.jpg') }}" alt="{{ $service->title }}" class="img-fluid rounded mb-4 w-100" style="max-height: 400px; object-fit: cover;">
+                <img src="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}" alt="{{ $service->title }}" class="img-fluid rounded mb-4 w-100" style="max-height: 400px; object-fit: cover;">
                 @endif
 
                 <div class="service-content">

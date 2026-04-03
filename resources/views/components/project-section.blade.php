@@ -16,13 +16,13 @@
                 </div>
             </div>
         </div>
-        <div class="slider project-carousel nav-style dl-lb-gallery">
+            <div class="slider project-carousel nav-style dl-lb-gallery">
             @foreach($projects ?? [] as $project)
             <div class="project-item">
                <div class="project-thumb">
-                   <img src="{{ asset($project['image'] ?? 'assets/img/project-1-420x520.jpg') }}" alt="project">
+                   <img src="{{ asset($project['image'] ?? 'assets/FotoHeroSection/AAI0008.jpg') }}" alt="project">
                     <div class="project-view">
-                        <a class="dl-lightbox" href="{{ asset($project['lightbox_image'] ?? 'assets/img/project-1-768x600.jpg') }}"><i class="fas fa-plus"></i></a>
+                        <a class="dl-lightbox" href="{{ asset($project['lightbox_image'] ?? 'assets/FotoHeroSection/AAI0008.jpg') }}"><i class="fas fa-plus"></i></a>
                     </div>
                 </div>
                 <div class="project-content">

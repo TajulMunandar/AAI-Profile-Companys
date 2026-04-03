@@ -21,7 +21,7 @@
 @php
 $services = \App\Models\Service::all()->map(function($service) {
     return [
-        'image' => $service->image ? 'storage/' . $service->image : 'landing-assets/img/post-4-768x512.jpg',
+        'image' => $service->image ? 'storage/' . $service->image : 'assets/FotoHeroSection/AAI0008.jpg',
         'icon' => $service->icon ?? 'dl dl-factory-1',
         'title' => $service->title,
         'description' => Str::limit(strip_tags($service->description), 100),
@@ -31,12 +31,12 @@ $services = \App\Models\Service::all()->map(function($service) {
 
 if (empty($services)) {
     $services = [
-        ['image' => 'landing-assets/img/post-4-768x512.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Automobile & Manufacturing', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
-        ['image' => 'landing-assets/img/post-3-768x512.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Mechanical Engineering', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
-        ['image' => 'landing-assets/img/post-8-768x512.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Oil Gas & Power Plant', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
-        ['image' => 'landing-assets/img/post-1-768x512.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Steel & Metal Works', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
-        ['image' => 'landing-assets/img/post-2-768x512.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Electrical Engineering', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#'],
-        ['image' => 'landing-assets/img/post-5-768x512.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Chemical Processing', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '#']
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Automobile & Manufacturing', 'description' => 'Professional contractor services with commitment to quality.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Mechanical Engineering', 'description' => 'Quality construction services with professional team.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Oil Gas & Power Plant', 'description' => 'Industrial construction solutions for various sectors.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Steel & Metal Works', 'description' => 'Professional steel and metal construction services.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Electrical Engineering', 'description' => 'Expert electrical engineering solutions.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Chemical Processing', 'description' => 'Chemical processing plant construction.', 'link' => '#']
     ];
 }
 @endphp

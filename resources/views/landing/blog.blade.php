@@ -30,7 +30,7 @@
                                 @if($article->image)
                                 <img src="{{ asset('storage/' . $article->image) }}" alt="{{ $article->title }}">
                                 @else
-                                <img src="{{ asset('landing-assets/img/post-1-768x512.jpg') }}" alt="post">
+                                <img src="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}" alt="post">
                                 @endif
                                 <span class="category"><a href="{{ route('blog', ['category' => $article->kategori_id]) }}">{{ $article->kategori->nama ?? 'General' }}</a></span>
                             </div>
@@ -71,7 +71,7 @@
                                 @if($recent->image)
                                 <img src="{{ asset('storage/' . $recent->image) }}" alt="post">
                                 @else
-                                <img src="{{ asset('landing-assets/img/post-1-120x120.jpg') }}" alt="post">
+                                <img src="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}" alt="post">
                                 @endif
                                 <a href="{{ route('blog.show', $recent->slug) }}">{{ $recent->title }}<span>{{ $recent->created_at->format('F d, Y') }}</span></a>
                             </li>

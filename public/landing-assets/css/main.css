@@ -2439,8 +2439,37 @@ a,a:hover, img, .form-control,  .form-control:hover, button{
 /* ==========================================================================
     Sponsor Section
    ========================================================================== */
-.sponsor-section{ padding: 60px 0; }
-.sponsor-item{ padding: 0px 40px 0px 40px; }
+.sponsor-section{ 
+    padding: 60px 0; 
+    text-align: center;
+}
+.sponsor-section .container {
+    max-width: 100%;
+}
+.sponsor-section .slick-track {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sponsor-section .slick-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: none;
+}
+.sponsor-item{ 
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sponsor-item img {
+    max-width: 150px;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+    display: block;
+}
 .sponsor-item img:hover { cursor: pointer;}
 .sponsor-grid{
     border: 1px solid #eee;

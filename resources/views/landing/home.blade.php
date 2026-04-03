@@ -51,13 +51,13 @@ if (!empty($dbSliders)) {
 {{-- About Section --}}
 @php
 $aboutLists = [
-    ['icon' => 'dl dl-levels', 'title' => 'Our Mission', 'description' => '<p>In carrying out its business activities, PT. ATLANTIC ALAM INDUSTRI has a goal:</p><ul><li>Ensure a work environment that motivates and supports the efforts of all their employees without accidents and illness caused by work that comes from activities, services, products and facilities management systems that develop HSE performance continuously.</li><li>Work with customers to understand their desires and help implement the best Quality and HSE practices in designing and providing safe construction services and reliable construction services and also ensuring the provision of services that exceed or exceed customer expectations.</li><li>Implement a broad management system that ensures the fulfillment of customer satisfaction, compliance with applicable regulations and other requirements and conducts periodic reviews of quality and HSE performance and its application.</li></ul>'],
+    ['icon' => 'dl dl-levels', 'title' => 'Our Mission', 'description' => 'Ensure a work environment that motivates and supports all employees without accidents. Work with customers to implement best Quality and HSE practices in construction services.'],
     ['icon' => 'dl dl-industrial-robot-8', 'title' => 'Our Vision', 'description' => 'Becoming the Best National Scale Engineering, Procurement and Construction (EPC) Service in the Field of General Contractors.']
 ];
 @endphp
 <x-about-section
     title="We're Building Everything Best <br>That You <span>Needed!</span>"
-    description="PT. ATLANTIC ALAM INDUSTRI is a construction services company engaged in providing contractor services. Management views that the provision of services in accordance with the wishes of the customer is the main capital to be able to compete in global competition. In the face of fierce business competition in the present and the future and the increasing needs and expectations of customers, there is no other choice for the Organization to be able to survive and develop its business by always improving the quality of services provided to customers and improving safety and health work in an organizational environment."
+    description="PT. ATLANTIC ALAM INDUSTRI is a construction services company committed to providing the best contractor services. We prioritize quality and safety in every project."
     :lists="$aboutLists"
     btnText="More about us"
     btnLink="/about"
@@ -70,7 +70,7 @@ $aboutLists = [
 @php
 $services = \App\Models\Service::take(3)->get()->map(function($service) {
     return [
-        'image' => $service->image ? 'storage/' . $service->image : 'landing-assets/img/post-4-768x512.jpg',
+        'image' => $service->image ? 'storage/' . $service->image : 'assets/FotoHeroSection/AAI0008.jpg',
         'icon' => $service->icon ?? 'dl dl-factory-1',
         'title' => $service->title,
         'description' => Str::limit(strip_tags($service->description), 100),
@@ -80,9 +80,9 @@ $services = \App\Models\Service::take(3)->get()->map(function($service) {
 
 if (empty($services)) {
     $services = [
-        ['image' => 'landing-assets/img/post-4-768x512.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Automobile & Manufacturing', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '/service'],
-        ['image' => 'landing-assets/img/post-3-768x512.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Mechanical Engineering', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '/service'],
-        ['image' => 'landing-assets/img/post-8-768x512.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Oil Gas & Power Plant', 'description' => 'We produce positive results from growing Industrial estates, we have established a corporate or mandate,', 'link' => '/service']
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Automobile & Manufacturing', 'description' => 'Professional contractor services with commitment to quality and safety.', 'link' => '/service'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Mechanical Engineering', 'description' => 'Quality construction services with professional team.', 'link' => '/service'],
+        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Oil Gas & Power Plant', 'description' => 'Industrial construction solutions for various sectors.', 'link' => '/service']
     ];
 }
 @endphp
@@ -97,8 +97,8 @@ if (empty($services)) {
 @php
 $projects = \App\Models\Project::latest()->take(5)->get()->map(function($project) {
     return [
-        'image' => $project->image ? 'storage/' . $project->image : 'landing-assets/img/project-1-420x520.jpg',
-        'lightbox_image' => $project->image ? 'storage/' . $project->image : 'landing-assets/img/project-1-768x600.jpg',
+        'image' => $project->image ? 'storage/' . $project->image : 'assets/FotoHeroSection/AAI0008.jpg',
+        'lightbox_image' => $project->image ? 'storage/' . $project->image : 'assets/FotoHeroSection/AAI0008.jpg',
         'category' => $project->project_type ?? 'Construction',
         'title' => $project->title,
         'link' => url('/project/' . $project->slug)
@@ -107,11 +107,11 @@ $projects = \App\Models\Project::latest()->take(5)->get()->map(function($project
 
 if (empty($projects)) {
     $projects = [
-        ['image' => 'landing-assets/img/project-1-420x520.jpg', 'lightbox_image' => 'landing-assets/img/project-1-768x600.jpg', 'category' => 'Architecture', 'title' => 'The Burj Khalifa', 'link' => '/project-4-col'],
-        ['image' => 'landing-assets/img/project-2-420x520.jpg', 'lightbox_image' => 'landing-assets/img/project-2-768x600.jpg', 'category' => 'Building', 'title' => 'Federation Tower', 'link' => '/project-4-col'],
-        ['image' => 'landing-assets/img/project-3-420x520.jpg', 'lightbox_image' => 'landing-assets/img/project-3-768x600.jpg', 'category' => 'Realstate', 'title' => 'The Exchange 106', 'link' => '/project-4-col'],
-        ['image' => 'landing-assets/img/project-4-420x520.jpg', 'lightbox_image' => 'landing-assets/img/project-4-768x600.jpg', 'category' => 'Industrial', 'title' => 'World Trade Center', 'link' => '/project-4-col'],
-        ['image' => 'landing-assets/img/project-5-420x520.jpg', 'lightbox_image' => 'landing-assets/img/project-5-768x600.jpg', 'category' => 'Realstate', 'title' => 'Vincom Landmark 81', 'link' => '/project-4-col']
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'lightbox_image' => 'assets/FotoHeroSection/AAI0008.jpg', 'category' => 'Construction', 'title' => 'Industrial Project 1', 'link' => '/project-4-col'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'category' => 'Building', 'title' => 'Industrial Project 2', 'link' => '/project-4-col'],
+        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'category' => 'Industrial', 'title' => 'Industrial Project 3', 'link' => '/project-4-col'],
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'lightbox_image' => 'assets/FotoHeroSection/AAI0008.jpg', 'category' => 'Construction', 'title' => 'Industrial Project 4', 'link' => '/project-4-col'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'category' => 'Building', 'title' => 'Industrial Project 5', 'link' => '/project-4-col']
     ];
 }
 
@@ -139,7 +139,7 @@ $counters = [
 @php
 $articles = \App\Models\Article::latest()->take(3)->get()->map(function($article) {
     return [
-        'image' => $article->image ? 'storage/' . $article->image : 'landing-assets/img/post-1-768x512.jpg',
+        'image' => $article->image ? 'storage/' . $article->image : 'assets/FotoHeroSection/AAI0008.jpg',
         'category' => $article->kategori->nama ?? 'General',
         'category_link' => '/blog',
         'title' => $article->title,
@@ -150,9 +150,9 @@ $articles = \App\Models\Article::latest()->take(3)->get()->map(function($article
 
 if (empty($articles)) {
     $articles = [
-        ['image' => 'landing-assets/img/post-1-768x512.jpg', 'category' => 'interior', 'category_link' => '/blog-grid', 'title' => 'Industrial Factory Building Equipment 2021', 'excerpt' => 'The new functions coming to construction for equipment mathematics promise make life easier for owners...', 'link' => '/blog-details'],
-        ['image' => 'landing-assets/img/post-2-768x512.jpg', 'category' => 'Architecture', 'category_link' => '/blog-grid', 'title' => 'The Evolution Of Construction Services 1995', 'excerpt' => 'The new functions coming to construction for equipment mathematics promise make life easier for owners...', 'link' => '/blog-details'],
-        ['image' => 'landing-assets/img/post-3-768x512.jpg', 'category' => 'Constuction', 'category_link' => '/blog-grid', 'title' => 'Manufacturing The Industries Construction INC', 'excerpt' => 'The new functions coming to construction for equipment mathematics promise make life easier for owners...', 'link' => '/blog-details']
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'category' => 'Construction', 'category_link' => '/blog-grid', 'title' => 'Industrial Factory Building Equipment 2021', 'excerpt' => 'Latest developments in industrial construction equipment.', 'link' => '/blog-details'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'category' => 'Architecture', 'category_link' => '/blog-grid', 'title' => 'The Evolution Of Construction Services 1995', 'excerpt' => 'Historical overview of construction service development.', 'link' => '/blog-details'],
+        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'category' => 'Construction', 'category_link' => '/blog-grid', 'title' => 'Manufacturing The Industries Construction INC', 'excerpt' => 'Modern industrial construction techniques and methods.', 'link' => '/blog-details']
     ];
 }
 @endphp

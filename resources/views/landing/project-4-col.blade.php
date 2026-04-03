@@ -31,13 +31,13 @@
                        @if($project->image)
                        <img src="{{ asset('storage/' . $project->image) }}" alt="{{ $project->title }}">
                        @else
-                       <img src="{{ asset('landing-assets/img/project-1-420x520.jpg') }}" alt="{{ $project->title }}">
+                       <img src="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}" alt="{{ $project->title }}">
                        @endif
                         <div class="project-view">
                             @if($project->image)
                             <a class="dl-lightbox" href="{{ asset('storage/' . $project->image) }}"><i class="fas fa-plus"></i></a>
                             @else
-                            <a class="dl-lightbox" href="{{ asset('landing-assets/img/project-1-768x600.jpg') }}"><i class="fas fa-plus"></i></a>
+                            <a class="dl-lightbox" href="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}"><i class="fas fa-plus"></i></a>
                             @endif
                         </div>
                     </div>
