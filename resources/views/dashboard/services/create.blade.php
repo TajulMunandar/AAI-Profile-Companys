@@ -52,20 +52,81 @@
                                         <label for="icon" class="form-label fw-semibold">
                                             <i class="ti ti-star me-1"></i>Icon
                                         </label>
-                                        <select class="form-select" id="icon" name="icon">
-                                            <option value="">-- Select Icon --</option>
-                                            <option value="dl dl-factory-1" {{ old('icon') == 'dl dl-factory-1' ? 'selected' : '' }}>🏭 Factory (dl dl-factory-1)</option>
-                                            <option value="dl dl-industrial-robot-9" {{ old('icon') == 'dl dl-industrial-robot-9' ? 'selected' : '' }}>🤖 Industrial Robot (dl dl-industrial-robot-9)</option>
-                                            <option value="dl dl-industrial-robot-12" {{ old('icon') == 'dl dl-industrial-robot-12' ? 'selected' : '' }}>🦾 Industrial Robot 2 (dl dl-industrial-robot-12)</option>
-                                            <option value="dl dl-industrial-robot-8" {{ old('icon') == 'dl dl-industrial-robot-8' ? 'selected' : '' }}>🔧 Industrial Robot 3 (dl dl-industrial-robot-8)</option>
-                                            <option value="dl dl-levels" {{ old('icon') == 'dl dl-levels' ? 'selected' : '' }}>📊 Levels (dl dl-levels)</option>
-                                            <option value="dl dl-crane" {{ old('icon') == 'dl dl-crane' ? 'selected' : '' }}>🏗️ Crane (dl dl-crane)</option>
-                                            <option value="dl dl-helmet" {{ old('icon') == 'dl dl-helmet' ? 'selected' : '' }}>⛑️ Safety Helmet (dl dl-helmet)</option>
-                                            <option value="dl dl-tools" {{ old('icon') == 'dl dl-tools' ? 'selected' : '' }}>🔨 Tools (dl dl-tools)</option>
-                                            <option value="dl dl-gear" {{ old('icon') == 'dl dl-gear' ? 'selected' : '' }}>⚙️ Gear (dl dl-gear)</option>
-                                            <option value="dl dl-energy" {{ old('icon') == 'dl dl-energy' ? 'selected' : '' }}>⚡ Energy (dl dl-energy)</option>
-                                        </select>
-                                        <div class="form-text">Choose an icon for this service</div>
+                                        <div class="icon-selector border rounded p-2" style="max-height: 200px; overflow-y: auto;">
+                                            <div class="row g-1">
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/engineering.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/engineering.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/engineering.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/engineering.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Engineering</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/procurement.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/procurement.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/procurement.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/procurement.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Procurement</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/procurement-1.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/procurement-1.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/procurement-1.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/procurement-1.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Procurement 1</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/procurement-2.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/procurement-2.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/procurement-2.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/procurement-2.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Procurement 2</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/worker.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/worker.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/worker.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/worker.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Worker</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/worker-1.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/worker-1.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/worker-1.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/worker-1.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Worker 1</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/worker-2.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/worker-2.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/worker-2.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/worker-2.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Worker 2</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/hook.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/hook.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/hook.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/hook.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Hook</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/hook-1.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/hook-1.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/hook-1.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/hook-1.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Hook 1</small>
+                                                    </label>
+                                                </div>
+                                                <div class="col-4 text-center">
+                                                    <label class="icon-option p-2 rounded cursor-pointer d-block {{ old('icon') == 'assets/Icon-Engineering/hook-2.png' ? 'bg-primary' : '' }}">
+                                                        <input type="radio" name="icon" value="assets/Icon-Engineering/hook-2.png" class="d-none" {{ old('icon') == 'assets/Icon-Engineering/hook-2.png' ? 'checked' : '' }}>
+                                                        <img src="{{ asset('assets/Icon-Engineering/hook-2.png') }}" style="width: 40px; height: 40px; object-fit: contain;">
+                                                        <small class="d-block">Hook 2</small>
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-text">Pilih icon untuk service ini</div>
                                     </div>
                                 </div>
                             </div>
@@ -118,11 +179,32 @@
     .cursor-pointer:hover {
         background-color: #f8f9fa;
     }
+    .icon-option {
+        transition: all 0.2s ease;
+        border: 1px solid #dee2e6;
+    }
+    .icon-option:hover {
+        background-color: #e9ecef;
+        border-color: #adb5bd;
+    }
+    .icon-option.bg-primary {
+        border-color: #0d6efd;
+    }
 </style>
 @endpush
 
 @push('js')
 <script>
+    // Icon selection highlight
+    document.querySelectorAll('.icon-option input').forEach(function(input) {
+        input.addEventListener('change', function() {
+            document.querySelectorAll('.icon-option').forEach(function(opt) {
+                opt.classList.remove('bg-primary', 'text-white');
+            });
+            this.closest('.icon-option').classList.add('bg-primary', 'text-white');
+        });
+    });
+
     // Image preview
     document.getElementById('image').addEventListener('change', function(e) {
         const file = e.target.files[0];

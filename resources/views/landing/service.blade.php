@@ -22,7 +22,7 @@
 $services = \App\Models\Service::all()->map(function($service) {
     return [
         'image' => $service->image ? 'storage/' . $service->image : 'assets/FotoHeroSection/AAI0008.jpg',
-        'icon' => $service->icon ?? 'dl dl-factory-1',
+        'icon' => $service->icon ?? 'assets/Icon-Engineering/engineering.png',
         'title' => $service->title,
         'description' => Str::limit(strip_tags($service->description), 100),
         'link' => url('/service/' . $service->slug)
@@ -31,12 +31,12 @@ $services = \App\Models\Service::all()->map(function($service) {
 
 if (empty($services)) {
     $services = [
-        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Automobile & Manufacturing', 'description' => 'Professional contractor services with commitment to quality.', 'link' => '#'],
-        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Mechanical Engineering', 'description' => 'Quality construction services with professional team.', 'link' => '#'],
-        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Oil Gas & Power Plant', 'description' => 'Industrial construction solutions for various sectors.', 'link' => '#'],
-        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'icon' => 'dl dl-factory-1', 'title' => 'Steel & Metal Works', 'description' => 'Professional steel and metal construction services.', 'link' => '#'],
-        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'icon' => 'dl dl-industrial-robot-9', 'title' => 'Electrical Engineering', 'description' => 'Expert electrical engineering solutions.', 'link' => '#'],
-        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'icon' => 'dl dl-industrial-robot-12', 'title' => 'Chemical Processing', 'description' => 'Chemical processing plant construction.', 'link' => '#']
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'icon' => 'assets/Icon-Engineering/engineering.png', 'title' => 'Automobile & Manufacturing', 'description' => 'Professional contractor services with commitment to quality.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'icon' => 'assets/Icon-Engineering/worker.png', 'title' => 'Mechanical Engineering', 'description' => 'Quality construction services with professional team.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'icon' => 'assets/Icon-Engineering/procurement.png', 'title' => 'Oil Gas & Power Plant', 'description' => 'Industrial construction solutions for various sectors.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'icon' => 'assets/Icon-Engineering/worker-1.png', 'title' => 'Steel & Metal Works', 'description' => 'Professional steel and metal construction services.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'icon' => 'assets/Icon-Engineering/hook.png', 'title' => 'Electrical Engineering', 'description' => 'Expert electrical engineering solutions.', 'link' => '#'],
+        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'icon' => 'assets/Icon-Engineering/hook-1.png', 'title' => 'Chemical Processing', 'description' => 'Chemical processing plant construction.', 'link' => '#']
     ];
 }
 @endphp

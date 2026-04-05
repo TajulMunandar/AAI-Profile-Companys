@@ -13,7 +13,11 @@
                         <img src="{{ asset($service['image'] ?? 'assets/img/post-4-768x512.jpg') }}" alt="post">
                     </div>
                     <div class="service-icon">
-                        <i class="{{ $service['icon'] ?? 'dl dl-factory-1' }}"></i>
+                        @if(isset($service['icon']) && strpos($service['icon'], 'assets/') === 0)
+                        <img src="{{ asset($service['icon']) }}" alt="icon" style="width: 50px; height: 50px; object-fit: contain;">
+                        @else
+                        <i class="{{ $service['icon'] ?? 'ti ti-tools' }}"></i>
+                        @endif
                     </div>
                     <div class="service-content">
                         <a href="{{ url($service['link'] ?? '#') }}"><h3>{{ $service['title'] ?? '' }}</h3></a>
