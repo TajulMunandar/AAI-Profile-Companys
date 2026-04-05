@@ -230,8 +230,8 @@
             dots: false,
             infinite: false,
             speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: 3,
+            slidesToScroll: 3,
             prevArrow: '<i class="fas fa-chevron-left left"></i>',
             nextArrow: '<i class="fas fa-chevron-right right"></i>',
             infinite: true,
@@ -241,8 +241,8 @@
             responsive: [{
                     breakpoint: 1024,
                     settings: {
-                        slidesToShow: 4,
-                        slidesToScroll: 4,
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
                     }
                 },
                 {
@@ -264,6 +264,34 @@
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+
+        /* ======= Vehicle Carousel ======= */
+        $('.vehicle-carousel').slick({
+            dots: false,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            prevArrow: '<i class="fas fa-chevron-left left"></i>',
+            nextArrow: '<i class="fas fa-chevron-right right"></i>',
+            pauseOnFocus: false,
+            pauseOnHover: true,
+            responsive: [{
+                    breakpoint: 992,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3
+                    }
+                },
+                {
+                    breakpoint: 576,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
                     }
                 }
             ]

@@ -9,7 +9,9 @@
             @foreach($services ?? [] as $index => $service)
             <div class="col-lg-4 col-md-6 sm-padding wow fadeInUp" data-wow-delay="{{ 200 + ($index * 100) }}ms">
                 <div class="service-box">
-                    <img src="{{ asset($service['image'] ?? 'assets/img/post-4-768x512.jpg') }}" alt="post">
+                    <div class="service-image">
+                        <img src="{{ asset($service['image'] ?? 'assets/img/post-4-768x512.jpg') }}" alt="post">
+                    </div>
                     <div class="service-icon">
                         <i class="{{ $service['icon'] ?? 'dl dl-factory-1' }}"></i>
                     </div>

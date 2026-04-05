@@ -72,6 +72,11 @@ Route::get('/project-4-col', function () {
     return view('landing.project-4-col');
 });
 
+Route::get('/project/{slug}', function ($slug) {
+    $project = \App\Models\Project::where('slug', $slug)->firstOrFail();
+    return view('landing.project-detail', compact('project'));
+});
+
 Route::get('/project-3-col', function () {
     return view('landing.project-4-col'); // Same as 4-col for now
 });

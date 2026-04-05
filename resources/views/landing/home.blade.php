@@ -95,7 +95,7 @@ if (empty($services)) {
 
 {{-- Vehicle & Heavy Equipment Section --}}
 @php
-$vehicles = \App\Models\Equipment::where('is_active', true)->orderBy('order')->take(6)->get();
+$vehicles = \App\Models\Equipment::where('is_active', true)->orderBy('order')->take(8)->get();
 @endphp
 
 <section class="vehicle-section padding" style="background: #f8f9fa;">
@@ -104,14 +104,14 @@ $vehicles = \App\Models\Equipment::where('is_active', true)->orderBy('order')->t
             <h4 class="sub-heading">Our Equipment</h4>
             <h2>Vehicle & <span>Heavy Equipment</span></h2>
         </div>
-        <div class="row">
+        <div class="vehicle-carousel" style="position: relative;">
             @foreach($vehicles as $vehicle)
-            <div class="col-lg-2 col-md-4 col-6">
-                <div style="text-align: center; margin-bottom: 20px;">
+            <div class="vehicle-item">
+                <div style="text-align: center; padding: 0 10px;">
                     @if($vehicle->image)
-                    <img src="{{ asset('storage/' . $vehicle->image) }}" alt="{{ $vehicle->title }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
+                    <img src="{{ asset('storage/' . $vehicle->image) }}" alt="{{ $vehicle->title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
                     @else
-                    <img src="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}" alt="{{ $vehicle->title }}" style="width: 100%; height: 150px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
+                    <img src="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}" alt="{{ $vehicle->title }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px; margin-bottom: 10px;">
                     @endif
                     <h5 style="font-size: 14px; font-weight: 600;">{{ $vehicle->title }}</h5>
                 </div>
@@ -131,18 +131,21 @@ $projects = \App\Models\Project::latest()->take(5)->get()->map(function($project
         'image' => $project->image ? 'storage/' . $project->image : 'assets/FotoHeroSection/AAI0008.jpg',
         'lightbox_image' => $project->image ? 'storage/' . $project->image : 'assets/FotoHeroSection/AAI0008.jpg',
         'category' => $project->project_type ?? 'Construction',
-        'title' => $project->title,
+        'title' => Str::limit($project->title, 40),
+        'client' => $project->client_name ?? '',
+        'location' => $project->location ?? '',
+        'date' => $project->date ?? '',
         'link' => url('/project/' . $project->slug)
     ];
 })->toArray();
 
 if (empty($projects)) {
     $projects = [
-        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'lightbox_image' => 'assets/FotoHeroSection/AAI0008.jpg', 'category' => 'Construction', 'title' => 'Industrial Project 1', 'link' => '/project-4-col'],
-        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'category' => 'Building', 'title' => 'Industrial Project 2', 'link' => '/project-4-col'],
-        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'category' => 'Industrial', 'title' => 'Industrial Project 3', 'link' => '/project-4-col'],
-        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'lightbox_image' => 'assets/FotoHeroSection/AAI0008.jpg', 'category' => 'Construction', 'title' => 'Industrial Project 4', 'link' => '/project-4-col'],
-        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'category' => 'Building', 'title' => 'Industrial Project 5', 'link' => '/project-4-col']
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'lightbox_image' => 'assets/FotoHeroSection/AAI0008.jpg', 'category' => 'Construction', 'title' => 'Industrial Project 1', 'client' => 'PT Maju Jaya', 'location' => 'Jakarta', 'date' => '2024-01-15', 'link' => '/project/industrial-project-1'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'category' => 'Building', 'title' => 'Industrial Project 2', 'client' => 'PT Sejahtera', 'location' => 'Surabaya', 'date' => '2024-02-20', 'link' => '/project/industrial-project-2'],
+        ['image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG20201112114341.jpg', 'category' => 'Industrial', 'title' => 'Industrial Project 3', 'client' => 'PT Nusantara', 'location' => 'Bandung', 'date' => '2024-03-10', 'link' => '/project/industrial-project-3'],
+        ['image' => 'assets/FotoHeroSection/AAI0008.jpg', 'lightbox_image' => 'assets/FotoHeroSection/AAI0008.jpg', 'category' => 'Construction', 'title' => 'Industrial Project 4', 'client' => 'PT Bersama', 'location' => 'Medan', 'date' => '2024-04-05', 'link' => '/project/industrial-project-4'],
+        ['image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'lightbox_image' => 'assets/FotoHeroSection/IMG-20190706-WA0029.jpg', 'category' => 'Building', 'title' => 'Industrial Project 5', 'client' => 'PT Keluarga', 'location' => 'Makassar', 'date' => '2024-05-12', 'link' => '/project/industrial-project-5']
     ];
 }
 
