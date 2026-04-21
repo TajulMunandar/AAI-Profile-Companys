@@ -2,15 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use App\Traits\Slugable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Article extends Model
 {
     use HasFactory, Slugable;
 
-    protected $fillable = ['title', 'slug', 'content', 'kategori_id', 'tag', 'user_id', 'image', 'excerpt'];
+    protected $fillable = ['title', 'slug', 'content', 'kategori_id', 'tag', 'user_id', 'image', 'excerpt', 'published_at'];
+
+    protected $casts = [
+        'published_at' => 'datetime',
+    ];
 
     public function kategori()
     {

@@ -22,8 +22,8 @@ class BlogController extends Controller
             $query->where('kategori_id', $request->category);
         }
 
-        $articles = $query->latest()->paginate(6);
-        $recentArticles = Article::latest()->take(3)->get();
+        $articles = $query->latest('published_at')->paginate(6);
+        $recentArticles = Article::latest('published_at')->take(3)->get();
         $categories = Kategori::all();
 
         return view('landing.blog', compact('articles', 'recentArticles', 'categories'));
@@ -34,15 +34,15 @@ class BlogController extends Controller
         $article = Article::where('slug', $slug)->firstOrFail();
 
         // Get previous and next articles
-        $prevArticle = Article::where('created_at', '<', $article->created_at)
-            ->orderBy('created_at', 'desc')
+        $prevArticle = Article::where('published_at', '<', $article->published_at)
+            ->orderBy('published_at', 'desc')
             ->first();
 
-        $nextArticle = Article::where('created_at', '>', $article->created_at)
-            ->orderBy('created_at', 'asc')
+        $nextArticle = Article::where('published_at', '>', $article->published_at)
+            ->orderBy('published_at', 'asc')
             ->first();
 
-        $recentArticles = Article::latest()->take(3)->get();
+        $recentArticles = Article::latest('published_at')->take(3)->get();
         $categories = Kategori::all();
 
         return view('landing.blog-detail', compact(

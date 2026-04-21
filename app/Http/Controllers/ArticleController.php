@@ -14,10 +14,12 @@ class ArticleController extends Controller
     public function index()
     {
         try {
-            $articles = Article::with(['kategori', 'user'])->latest()->get();
+            $articles = Article::with(['kategori', 'user'])->latest('published_at')->get();
+
             return view('dashboard.articles.index', compact('articles'));
         } catch (\Exception $e) {
-            Log::error('Error fetching articles: ' . $e->getMessage());
+            Log::error('Error fetching articles: '.$e->getMessage());
+
             return redirect()->back()->with('error', 'Failed to load articles.');
         }
     }
@@ -26,9 +28,11 @@ class ArticleController extends Controller
     {
         try {
             $kategoris = Kategori::all();
+
             return view('dashboard.articles.create', compact('kategoris'));
         } catch (\Exception $e) {
-            Log::error('Error loading create form: ' . $e->getMessage());
+            Log::error('Error loading create form: '.$e->getMessage());
+
             return redirect()->back()->with('error', 'Failed to load form.');
         }
     }
@@ -43,6 +47,7 @@ class ArticleController extends Controller
                 'tag' => 'nullable|string',
                 'excerpt' => 'nullable|string',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'published_at' => 'nullable|date',
             ]);
 
             $imagePath = null;
@@ -56,7 +61,7 @@ class ArticleController extends Controller
             $counter = 1;
 
             while (Article::where('slug', $slug)->exists()) {
-                $slug = $originalSlug . '-' . $counter;
+                $slug = $originalSlug.'-'.$counter;
                 $counter++;
             }
 
@@ -69,13 +74,16 @@ class ArticleController extends Controller
                 'excerpt' => $request->excerpt ?? Str::limit(strip_tags($request->content), 150),
                 'image' => $imagePath,
                 'user_id' => auth()->id(),
+                'published_at' => $request->published_at ?? now(),
             ]);
 
             session()->flash('success', 'Article created successfully.');
+
             return redirect()->route('dashboard.articles.index');
         } catch (\Exception $e) {
-            Log::error('Error creating article: ' . $e->getMessage());
-            session()->flash('error', 'Failed to create article. ' . $e->getMessage());
+            Log::error('Error creating article: '.$e->getMessage());
+            session()->flash('error', 'Failed to create article. '.$e->getMessage());
+
             return redirect()->back()->withInput();
         }
     }
@@ -89,9 +97,11 @@ class ArticleController extends Controller
     {
         try {
             $kategoris = Kategori::all();
+
             return view('dashboard.articles.edit', compact('article', 'kategoris'));
         } catch (\Exception $e) {
-            Log::error('Error loading edit form: ' . $e->getMessage());
+            Log::error('Error loading edit form: '.$e->getMessage());
+
             return redirect()->back()->with('error', 'Failed to load form.');
         }
     }
@@ -106,6 +116,7 @@ class ArticleController extends Controller
                 'tag' => 'nullable|string',
                 'excerpt' => 'nullable|string',
                 'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+                'published_at' => 'nullable|date',
             ]);
 
             $data = [
@@ -114,6 +125,7 @@ class ArticleController extends Controller
                 'kategori_id' => $request->kategori_id,
                 'tag' => $request->tag,
                 'excerpt' => $request->excerpt ?? Str::limit(strip_tags($request->content), 150),
+                'published_at' => $request->published_at ?? $article->published_at,
             ];
 
             // Only update slug if title has changed
@@ -124,7 +136,7 @@ class ArticleController extends Controller
 
                 // Ensure slug is unique
                 while (Article::where('slug', $slug)->where('id', '!=', $article->id)->exists()) {
-                    $slug = $originalSlug . '-' . $counter;
+                    $slug = $originalSlug.'-'.$counter;
                     $counter++;
                 }
                 $data['slug'] = $slug;
@@ -141,10 +153,12 @@ class ArticleController extends Controller
             $article->update($data);
 
             session()->flash('success', 'Article updated successfully.');
+
             return redirect()->route('dashboard.articles.index');
         } catch (\Exception $e) {
-            Log::error('Error updating article: ' . $e->getMessage());
-            session()->flash('error', 'Failed to update article. ' . $e->getMessage());
+            Log::error('Error updating article: '.$e->getMessage());
+            session()->flash('error', 'Failed to update article. '.$e->getMessage());
+
             return redirect()->back()->withInput();
         }
     }
@@ -157,9 +171,11 @@ class ArticleController extends Controller
             }
             $article->delete();
             session()->flash('success', 'Article deleted successfully.');
+
             return redirect()->route('dashboard.articles.index');
         } catch (\Exception $e) {
-            Log::error('Error deleting article: ' . $e->getMessage());
+            Log::error('Error deleting article: '.$e->getMessage());
+
             return redirect()->back()->with('error', 'Failed to delete article.');
         }
     }

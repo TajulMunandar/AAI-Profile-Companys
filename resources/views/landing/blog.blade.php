@@ -3,6 +3,7 @@
 @section('title', 'Blog - Atlantic Alam Industri')
 @section('meta_description', 'Blog - Latest News and Updates from AAI')
 
+
 @section('content')
 
 {{-- Page Header --}}
@@ -35,7 +36,16 @@
                                 <span class="category"><a href="{{ route('blog', ['category' => $article->kategori_id]) }}">{{ $article->kategori->nama ?? 'General' }}</a></span>
                             </div>
                             <div class="blog-content">
-                                <h3><a href="{{ route('blog.show', $article->slug) }}">{{ $article->title }}</a></h3>
+                                <div class="row">
+                                    <div class="col">
+                                        <h3><a href="{{ route('blog.show', $article->slug) }}">{{ $article->title }}</a></h3>
+                                    </div>
+                                    <div class="col">
+                                        <p>
+                                            {{ $article->published_at ? $article->published_at->format('F d, Y H:i') : $article->created_at->format('F d, Y H:i') }}
+                                        </p>
+                                    </div>
+                                </div>
                                 <p>{{ Str::limit(strip_tags($article->content), 100) }}</p>
                                 <a href="{{ route('blog.show', $article->slug) }}" class="read-more">Read More</a>
                             </div>
@@ -73,7 +83,7 @@
                                 @else
                                 <img src="{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}" alt="post">
                                 @endif
-                                <a href="{{ route('blog.show', $recent->slug) }}">{{ $recent->title }}<span>{{ $recent->created_at->format('F d, Y') }}</span></a>
+                                <a href="{{ route('blog.show', $recent->slug) }}">{{ $recent->title }}<span>{{ $recent->published_at ? $recent->published_at->format('F d, Y H:i') : $recent->created_at->format('F d, Y H:i') }}</span></a>
                             </li>
                             @endforeach
                         </ul>

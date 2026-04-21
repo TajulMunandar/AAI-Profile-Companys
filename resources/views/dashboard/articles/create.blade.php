@@ -72,6 +72,16 @@
                                         </select>
                                     </div>
 
+                                    <!-- Publish Date -->
+                                    <div class="mb-3">
+                                        <label for="published_at" class="form-label fw-semibold">
+                                            <i class="ti ti-calendar me-1"></i>Publish Date
+                                        </label>
+                                        <input type="datetime-local" class="form-control" id="published_at" name="published_at"
+                                               value="{{ old('published_at', date('Y-m-d\TH:i')) }}">
+                                        <div class="form-text">Pilih tanggal dan waktu publikasi artikel</div>
+                                    </div>
+
                                     <!-- Tags -->
                                     <div class="mb-3">
                                         <label for="tag" class="form-label fw-semibold">

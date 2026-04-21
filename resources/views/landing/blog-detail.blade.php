@@ -12,7 +12,7 @@
        <div class="section-heading mt-40 text-center">
             <h4 class="sub-heading">Blog Post Details</h4>
             <h2>{{ $article->title }}</h2>
-            <p>Published on {{ $article->created_at->format('F d, Y') }} by {{ $article->user->name ?? 'Admin' }}</p>
+            <p>Published on {{ $article->published_at ? $article->published_at->format('F d, Y') : $article->created_at->format('F d, Y') }} by {{ $article->user->name ?? 'Admin' }}</p>
         </div><!-- /.section-heading -->
     </div>
 </section><!-- /.page-header -->
@@ -34,7 +34,7 @@
                         <h2><a href="#">{{ $article->title }}</a></h2>
                         <ul class="single-post-meta">
                             <li><i class="fas fa-user"></i> <a href="#">{{ $article->user->name ?? 'Admin' }}</a></li>
-                            <li><i class="fas fa-calendar"></i> <a href="#">{{ $article->created_at->format('F d, Y') }}</a></li>
+                                    <li><i class="fas fa-calendar"></i> <a href="#">{{ $article->published_at ? $article->published_at->format('F d, Y') : $article->created_at->format('F d, Y') }}</a></li>
                             <li><i class="fas fa-folder"></i> <a href="#">{{ $article->kategori->name ?? 'General' }}</a></li>
                         </ul>
                         <div class="article-content">
@@ -62,53 +62,7 @@
                             </div>
                         </div><!-- /.post-navigation -->
 
-                        {{-- Comments Section --}}
-                        <div class="comments-area">
-                            <div class="comments-section">
-                                <h3 class="comments-title">Comments ({{ $comments->count() }})</h3>
-                                <ol class="comments">
-                                    @foreach($comments as $comment)
-                                    <li class="comment">
-                                        <div>
-                                            <div class="comment-thumb">
-                                                <div class="comment-img">
-                                                    <img src="{{ asset('landing-assets/img/comment-1.png') }}" alt="">
-                                                </div>
-                                            </div>
-                                            <div class="comment-main-area">
-                                                <div class="comment-wrapper">
-                                                    <div class="comments-meta">
-                                                        <h4>{{ $comment->name }} <span class="comments-date">{{ $comment->created_at->format('M d, Y') }}</span></h4>
-                                                    </div>
-                                                    <div class="comment-area">
-                                                        <p>{{ $comment->comment }}</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    @endforeach
-                                </ol>
-                            </div>
-                            <div class="comment-respond">
-                                <h3 class="comment-reply-title">Write a Comment</h3>
-                                <form method="post" action="{{ route('comments.store') }}" class="comment-form">
-                                    @csrf
-                                    <input type="hidden" name="article_id" value="{{ $article->id }}">
-                                    <input type="hidden" name="is_public" value="1">
-                                    <div class="form-textarea">
-                                        <textarea name="comment" placeholder="Write Your Comments..." required></textarea>
-                                    </div>
-                                    <div class="form-inputs">
-                                        <input name="name" placeholder="Name" type="text" required>
-                                        <input name="email" placeholder="Email" type="email" required>
-                                    </div>
-                                    <div class="form-submit">
-                                        <input value="Post Comment" type="submit">
-                                    </div>
-                                </form>
-                            </div>
-                        </div><!-- /.comments-area -->
+
                     </div>
                 </div><!--/.blog-single-->
             </div><!--/.col-lg-8-->
