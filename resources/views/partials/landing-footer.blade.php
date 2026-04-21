@@ -26,7 +26,8 @@
                                 <a href="{{ url('/contact') }}">Book Schedule?</a>
                             </div>
                             <ul class="footer-social">
-                                <li><a href="https://id.linkedin.com/company/pt-atlantic-alam-industri" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                <li><a href="https://id.linkedin.com/company/pt-atlantic-alam-industri"
+                                        target="_blank"><i class="fab fa-linkedin"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -89,36 +90,22 @@
                         <div class="footer-header">
                             <h3>Our Offices</h3>
                         </div>
-                        <div class="row d-flex">
-                            <div class="col">
-                                <strong>Head Office:</strong><br>
-                                <i class="fa fa-map-marker"></i> Jln. Kenari No: 129A BTN Lama<br>
-                                Panggoi, Kec. Muara Dua Kota Lhokseumawe 24352 - Aceh<br>
-                                <i class="fa fa-phone"></i> 
-                                <a href="tel:+6264541042">+62 645 41042</a>
-                            </div>
-                            <div class="col">
-                                <strong>Branch Office:</strong><br>
-                                <i class="fa fa-map-marker"></i> Jln. Mampang Prapatan XVIII Blok C No.3<br>
-                                Duren Tiga, Pancoran, Jakarta Selatan 12760<br>
-                                <i class="fa fa-phone"></i> 
-                                <a href="tel:02127533271">(021) 27533271</a>
-                            </div>
-                            <div class="col">
-                                <strong>WorkShop:</strong><br>
-                                <i class="fa fa-map-marker"></i> Jln. Medan - B.Aceh Paloh. No: 102<br>
-                                Kec. Muara satu, Kota Lhokseumawe<br>
-                                <i class="fa fa-phone"></i> 
-                                <a href="tel:+626456502123">+62 645 6502123</a>
-                            </div>
-                            
-                            <div class="col">
-                                <strong>WorkShop Project:</strong><br>
-                                <i class="fa fa-map-marker"></i> Blang Nisam, Kec. Indra Makmur<br>
-                                Kab. Aceh Timur, Aceh, Indonesia 24457<br>
-                                <i class="fa fa-phone"></i> 
-                                <a href="tel:02127533271">(021) 27533271</a>
-                            </div>
+                        <div class="row g-3">
+                            @foreach ([['label' => 'Head Office', 'address' => "Jln. Kenari No: 129A BTN Lama\nPanggoi, Kec. Muara Dua Kota Lhokseumawe 24352 - Aceh", 'phone' => '+62 645 41042', 'tel' => '+6264541042'], ['label' => 'Branch Office', 'address' => "Jln. Mampang Prapatan XVIII Blok C No.3\nDuren Tiga, Pancoran, Jakarta Selatan 12760", 'phone' => '(021) 27533271', 'tel' => '02127533271'], ['label' => 'WorkShop', 'address' => "Jln. Medan - B.Aceh Paloh. No: 102\nKec. Muara Satu, Kota Lhokseumawe", 'phone' => '+62 645 6502123', 'tel' => '+626456502123'], ['label' => 'WorkShop Project', 'address' => "Blang Nisam, Kec. Indra Makmur\nKab. Aceh Timur, Aceh, Indonesia 24457", 'phone' => '(021) 27533271', 'tel' => '02127533271']] as $office)
+                                <div class="col-md-3">
+                                    <div class="d-flex flex-column h-100 gap-2">
+                                        <strong>{{ $office['label'] }}:</strong>
+                                        <div class="flex-grow-1">
+                                            <i class="fa fa-map-marker me-1"></i>
+                                            {!! nl2br(e($office['address'])) !!}
+                                        </div>
+                                        <div>
+                                            <i class="fa fa-phone me-1"></i>
+                                            <a href="tel:{{ $office['tel'] }}">{{ $office['phone'] }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
