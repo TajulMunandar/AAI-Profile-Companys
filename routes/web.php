@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\Dashboard\CertificationController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProjectController;
@@ -162,4 +163,5 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::resource('kategoris', KategoriController::class);
     Route::resource('sliders', SliderController::class);
     Route::resource('equipment', EquipmentController::class);
+    Route::resource('certifications', CertificationController::class);
 });

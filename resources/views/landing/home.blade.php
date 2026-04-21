@@ -171,7 +171,7 @@ $counters = [
 
 {{-- Blog Section --}}
 @php
-$articles = \App\Models\Article::latest()->take(3)->get()->map(function($article) {
+$articles = \App\Models\Article::latest('published_at')->take(3)->get()->map(function($article) {
     return [
         'image' => $article->image ? 'storage/' . $article->image : 'assets/FotoHeroSection/AAI0008.jpg',
         'category' => $article->kategori->nama ?? 'General',
@@ -197,6 +197,75 @@ if (empty($articles)) {
     description="Stay updated with our latest news, insights, and project updates."
     :posts="$articles"
 />
+
+{{-- Our Certification Section --}}
+<section class="padding" style="background: #f8f9fa;">
+    <div class="container">
+        <div class="section-heading mb-50 text-center">
+            <h4 class="sub-heading">Our Certification</h4>
+            <h2>Certifications & <span>Achievements</span></h2>
+            <p>We are committed to maintaining the highest standards of quality and safety in all our operations.</p>
+        </div>
+        @php
+            $certifications = \App\Models\Certification::orderBy('order', 'asc')->get();
+        @endphp
+        
+        @if($certifications->count() > 0)
+        <div class="row justify-content-center">
+            @foreach($certifications as $certification)
+            <div class="col-lg-3 col-md-4 col-sm-6 padding-15">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-4 text-center">
+                        @if($certification->image)
+                        <img src="{{ asset('storage/' . $certification->image) }}" 
+                             alt="{{ $certification->title }}" 
+                             class="img-fluid mb-3 cursor-pointer certification-image" 
+                             style="max-height: 120px;"
+                             data-src="{{ asset('storage/' . $certification->image) }}"
+                             data-title="{{ $certification->title }}">
+                        @endif
+                        <h5 class="fw-semibold">{{ $certification->title }}</h5>
+                        @if($certification->description)
+                        <p class="text-muted small mt-2">{{ $certification->description }}</p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @endif
+    </div>
+</section>
+
+{{-- Certification Modal --}}
+<div class="modal fade" id="certificationModal" tabindex="-1" aria-labelledby="certificationModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="certificationModalLabel"></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img src="" id="certificationModalImage" class="img-fluid" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+
+@push('js')
+<script>
+document.querySelectorAll('.certification-image').forEach(image => {
+    image.addEventListener('click', function() {
+        const modal = new bootstrap.Modal(document.getElementById('certificationModal'));
+        document.getElementById('certificationModalLabel').textContent = this.dataset.title;
+        document.getElementById('certificationModalImage').src = this.dataset.src;
+        modal.show();
+    });
+    image.style.cursor = 'pointer';
+    image.title = 'Click to view full size';
+});
+</script>
+@endpush
 
 {{-- Sponsor Section - Fetches from Clients --}}
 <x-sponsor-section />

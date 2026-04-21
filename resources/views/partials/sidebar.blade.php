@@ -76,6 +76,15 @@
                 </a>
             </li>
 
+            <!-- Certifications -->
+            <li class="sidebar-item">
+                <a class="sidebar-link {{ request()->is('dashboard/certifications*') ? 'active' : '' }}"
+                    href="{{ route('dashboard.certifications.index') }}" aria-expanded="false">
+                    <i class="ti ti-award"></i>
+                    <span class="hide-menu">Certifications</span>
+                </a>
+            </li>
+
             <!-- ---------------------------------- -->
             <!-- Communication -->
             <!-- ---------------------------------- -->
