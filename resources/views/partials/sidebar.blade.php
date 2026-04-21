@@ -85,6 +85,24 @@
                 </a>
             </li>
 
+            <!-- Job Vacancies -->
+            <li class="sidebar-item">
+                <a class="sidebar-link {{ request()->is('dashboard/job-vacancies*') ? 'active' : '' }}"
+                    href="{{ route('dashboard.job-vacancies.index') }}" aria-expanded="false">
+                    <i class="ti ti-briefcase"></i>
+                    <span class="hide-menu">Job Vacancies</span>
+                </a>
+            </li>
+
+            <!-- Job Applications -->
+            <li class="sidebar-item">
+                <a class="sidebar-link {{ request()->is('dashboard/job-applications*') ? 'active' : '' }}"
+                    href="{{ route('dashboard.job-applications.index') }}" aria-expanded="false">
+                    <i class="ti ti-file-description"></i>
+                    <span class="hide-menu">Job Applications</span>
+                </a>
+            </li>
+
             <!-- ---------------------------------- -->
             <!-- Communication -->
             <!-- ---------------------------------- -->

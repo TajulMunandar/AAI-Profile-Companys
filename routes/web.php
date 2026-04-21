@@ -3,10 +3,13 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CareerController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Dashboard\CertificationController;
+use App\Http\Controllers\Dashboard\JobApplicationController;
+use App\Http\Controllers\Dashboard\JobVacancyController;
 use App\Http\Controllers\EquipmentController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\ProjectController;
@@ -164,4 +167,10 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::resource('sliders', SliderController::class);
     Route::resource('equipment', EquipmentController::class);
     Route::resource('certifications', CertificationController::class);
+    Route::resource('job-vacancies', JobVacancyController::class);
+    Route::resource('job-applications', JobApplicationController::class)->only(['index', 'show', 'destroy']);
 });
+
+// Career Routes
+Route::get('/career', [CareerController::class, 'index'])->name('career');
+Route::post('/career/{jobVacancy}/apply', [CareerController::class, 'apply'])->name('career.apply');

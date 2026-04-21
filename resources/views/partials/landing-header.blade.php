@@ -67,6 +67,7 @@
                             </ul>
                         </li>
                         <li><a href="{{ url('/blog') }}">Blog</a></li>
+                        <li><a href="{{ url('/career') }}">Career</a></li>
                         <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                     </ul>
                 </div><!-- /.header-menu-wrap -->
