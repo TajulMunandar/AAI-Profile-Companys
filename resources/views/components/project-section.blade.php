@@ -28,13 +28,6 @@
                 <div class="project-content">
                     <a href="{{ url($project['link'] ?? '#') }}" class="cat">{{ $project['category'] ?? '' }}</a>
                     <h3><a href="{{ url($project['link'] ?? '#') }}">{{ $project['title'] ?? '' }}</a></h3>
-                    @if(!empty($project['client']) || !empty($project['location']) || !empty($project['date']))
-                    <div class="project-meta" style="font-size: 12px; color: #6a7c92; margin-top: 8px;">
-                        @if(!empty($project['client']))<span><i class="fas fa-user"></i> {{ $project['client'] }}</span>@endif
-                        @if(!empty($project['location']))<span style="margin-left: 12px;"><i class="fas fa-map-marker-alt"></i> {{ $project['location'] }}</span>@endif
-                        @if(!empty($project['date']))<span style="margin-left: 12px;"><i class="far fa-calendar"></i> {{ \Carbon\Carbon::parse($project['date'])->format('M Y') }}</span>@endif
-                    </div>
-                    @endif
                 </div>
             </div>
             @endforeach

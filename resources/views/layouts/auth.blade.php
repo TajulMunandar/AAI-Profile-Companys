@@ -13,7 +13,7 @@
     <!-- Core Css -->
     <link rel="stylesheet" href="{{ asset('assets/css/styles.css') }}" />
 
-    <title>@yield('title', 'Login - AAI Profile')</title>
+    <title>@yield('title', 'Login - Atlantic Alam Industri')</title>
 
     @stack('css')
 </head>

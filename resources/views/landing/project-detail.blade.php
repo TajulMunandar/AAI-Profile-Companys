@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', $project->title . ' - AAI Profile')
+@section('title', $project->title . ' - Atlantic Alam Industri')
 @section('meta_description', Str::limit(strip_tags($project->description ?? ''), 150))
 
 @section('content')

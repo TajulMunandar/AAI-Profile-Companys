@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', $service->title . ' - AAI Profile')
+@section('title', $service->title . ' - Atlantic Alam Industri')
 @section('meta_description', Str::limit(strip_tags($service->description), 150))
 
 @section('content')

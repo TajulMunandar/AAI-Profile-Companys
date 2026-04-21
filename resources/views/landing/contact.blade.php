@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', 'Contact Us - AAI Profile')
+@section('title', 'Contact Us - Atlantic Alam Industri')
 @section('meta_description', 'Contact Us - Get in touch with AAI Profile')
 
 @push('css')

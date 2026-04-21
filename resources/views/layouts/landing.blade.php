@@ -9,7 +9,7 @@
         <meta name="description" content="@yield('meta_description', 'Industrial Construction HTML5 Template')">
         <meta name="author" content="ThemeEaster">
 
-        <title>@yield('title', 'AAI Profile')</title>
+        <title>@yield('title', 'Atlantic Alam Industri')</title>
 
         <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}">
 

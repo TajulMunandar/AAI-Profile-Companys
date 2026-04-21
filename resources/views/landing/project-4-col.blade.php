@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', 'Our Projects - AAI Profile')
+@section('title', 'Our Projects - Atlantic Alam Industri')
 @section('meta_description', 'Our Projects - Industrial Construction Portfolio')
 
 @section('content')
@@ -12,7 +12,7 @@
        <div class="section-heading mt-40 text-center">
             <h4 class="sub-heading">Our Projects</h4>
             <h2>Transforming The Ideas And <br>Visions For <span>Industries!</span></h2>
-            <p>Construction is a general term meaning the art and science to <br>form objects systems organizations.</p>
+            <p>Construction is an integrated process of systematically planning, building, repairing, or dismantling <br>physical structures (such as buildings, roads, bridges, and infrastructure).</p>
         </div><!-- /.section-heading -->
     </div>
 </section><!-- /.page-header -->

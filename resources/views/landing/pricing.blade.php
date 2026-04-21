@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', 'Pricing Plans - AAI Profile')
+@section('title', 'Pricing Plans - Atlantic Alam Industri')
 @section('meta_description', 'Pricing Plans - Affordable Industrial Construction Solutions')
 
 @section('content')

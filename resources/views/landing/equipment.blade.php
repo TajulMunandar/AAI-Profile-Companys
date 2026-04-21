@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', 'Heavy Equipment - AAI Profile')
+@section('title', 'Heavy Equipment - Atlantic Alam Industri')
 @section('meta_description', 'Heavy Equipment - Industrial Construction Solutions')
 
 @section('content')
@@ -12,7 +12,7 @@
        <div class="section-heading mt-40 text-center">
             <h4 class="sub-heading">Our Equipment</h4>
             <h2>Vehicle & <span>Heavy Equipment</span></h2>
-            <p>PT. ATLANTIC ALAM INDUSTRI has various heavy equipment ready to support your project needs.</p>
+            <p>PT AAI has a variety of heavy equipment and heavy vehicles ready to support your project needs.</p>
         </div>
     </div>
 </section>

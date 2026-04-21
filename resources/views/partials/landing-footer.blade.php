@@ -11,7 +11,6 @@
                     <div class="footer-content">
                         <img class="logo" src="{{ asset('assets/logowebsiteaai.png') }}" alt="logo"
                             width="180">
-                        <p>PT. ATLANTIC ALAM INDUSTRI<br>Engineering, Procurement & Construction<br>Company Profile</p>
                         <div class="footer-icon-content">
                             <div class="footer-icon">
                                 <svg height="448pt" viewBox="0 -5 448 447" width="448pt"
@@ -27,6 +26,7 @@
                                 <a href="{{ url('/contact') }}">Book Schedule?</a>
                             </div>
                             <ul class="footer-social">
+                                <li><a href="https://id.linkedin.com/company/pt-atlantic-alam-industri" target="_blank"><i class="fab fa-linkedin"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-instagram"></i></a></li>
                                 <li><a href="#" target="_blank"><i class="fab fa-twitter"></i></a></li>
@@ -91,16 +91,33 @@
                         </div>
                         <div class="row d-flex">
                             <div class="col">
-                                <strong>Head Office:</strong><br>Jln. Kenari No: 129A BTN Lama Panggoi<br>Kec. Muara
-                                Dua Kota Lhokseumawe 24352 - Aceh<br><a href="tel:+6264541042">+62 645 41042</a>
+                                <strong>Head Office:</strong><br>
+                                <i class="fa fa-map-marker"></i> Jln. Kenari No: 129A BTN Lama<br>
+                                Panggoi, Kec. Muara Dua Kota Lhokseumawe 24352 - Aceh<br>
+                                <i class="fa fa-phone"></i> 
+                                <a href="tel:+6264541042">+62 645 41042</a>
                             </div>
                             <div class="col">
-                                <strong>WorkShop:</strong><br>Jln. Medan - B.Aceh Paloh. No: 102<br>Kec. Muara satu,
-                                Kota Lhokseumawe<br><a href="tel:+626456502123">+62 645 6502123</a>
+                                <strong>Branch Office:</strong><br>
+                                <i class="fa fa-map-marker"></i> Jln. Mampang Prapatan XVIII Blok C No.3<br>
+                                Duren Tiga, Pancoran, Jakarta Selatan 12760<br>
+                                <i class="fa fa-phone"></i> 
+                                <a href="tel:02127533271">(021) 27533271</a>
                             </div>
                             <div class="col">
-                                <strong>Branch Office:</strong><br>Jln. Mampang Prapatan XVIII Blok C No.3<br>Duren
-                                Tiga, Pancoran, Jakarta Selatan 12760<br><a href="tel:02127533271">(021) 27533271</a>
+                                <strong>WorkShop:</strong><br>
+                                <i class="fa fa-map-marker"></i> Jln. Medan - B.Aceh Paloh. No: 102<br>
+                                Kec. Muara satu, Kota Lhokseumawe<br>
+                                <i class="fa fa-phone"></i> 
+                                <a href="tel:+626456502123">+62 645 6502123</a>
+                            </div>
+                            
+                            <div class="col">
+                                <strong>WorkShop Project:</strong><br>
+                                <i class="fa fa-map-marker"></i> Blang Nisam, Kec. Indra Makmur<br>
+                                Kab. Aceh Timur, Aceh, Indonesia 24457<br>
+                                <i class="fa fa-phone"></i> 
+                                <a href="tel:02127533271">(021) 27533271</a>
                             </div>
                         </div>
                     </div>

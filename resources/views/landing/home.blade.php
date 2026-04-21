@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', 'AAI Profile - Industrial Construction Solutions')
+@section('title', 'Atlantic Alam Industri - Industrial Construction Solutions')
 @section('meta_description', 'AAI Profile - Industrial Construction HTML5 Template')
 
 @section('content')

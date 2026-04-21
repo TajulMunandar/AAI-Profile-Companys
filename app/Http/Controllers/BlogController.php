@@ -14,7 +14,7 @@ class BlogController extends Controller
 
         // Search
         if ($request->has('search') && $request->search) {
-            $query->where('title', 'like', '%' . $request->search . '%');
+            $query->where('title', 'like', '%'.$request->search.'%');
         }
 
         // Filter by category
@@ -44,15 +44,13 @@ class BlogController extends Controller
 
         $recentArticles = Article::latest()->take(3)->get();
         $categories = Kategori::all();
-        $comments = $article->comments()->latest()->get();
 
         return view('landing.blog-detail', compact(
             'article',
             'prevArticle',
             'nextArticle',
             'recentArticles',
-            'categories',
-            'comments'
+            'categories'
         ));
     }
 }

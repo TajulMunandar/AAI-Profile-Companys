@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', 'Clients & Partners - AAI Profile')
+@section('title', 'Clients & Partners - Atlantic Alam Industri')
 @section('meta_description', 'Clients & Partners - Trusted by Industry Leaders')
 
 @section('content')

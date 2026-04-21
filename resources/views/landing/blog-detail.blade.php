@@ -1,6 +1,6 @@
 @extends('layouts.landing')
 
-@section('title', $article->title . ' - AAI Profile')
+@section('title', $article->title . ' - Atlantic Alam Industri')
 @section('meta_description', $article->excerpt ?? Str::limit(strip_tags($article->content), 150))
 
 @section('content')
