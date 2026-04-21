@@ -71,6 +71,16 @@
                 height: 100%;
                 object-fit: cover;
             }
+            
+            /* Fix Blog Title 2 Lines Max */
+            .blog-content h3 {
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                line-height: 1.4;
+                min-height: 2.8em;
+            }
         </style>
 
         @stack('css')

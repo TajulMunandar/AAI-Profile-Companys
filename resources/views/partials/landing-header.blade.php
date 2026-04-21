@@ -5,7 +5,8 @@
                 <div class="top-left">
                     <ul>
                         <li>Phone: <a href="tel:+6264541042">+62 645 41042</a></li>
-                        <li>Email: <a href="mailto:atlanticalamindustri@aaipt.co.id">atlanticalamindustri@aaipt.co.id</a></li>
+                        <li>Email: <a href="mailto:atlanticalamindustri@aaipt.co.id">atlanticalamindustri@aaipt.co.id</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="top-right">
@@ -25,13 +26,14 @@
             <div class="mid-header-inner">
                 <div class="header-logo">
                     <a href="{{ url('/') }}">
-                        <img src="{{ asset('assets/logowebsiteaai.png') }}" alt="Logo" width="110%"/>
+                        <img src="{{ asset('assets/logowebsiteaai.png') }}" alt="Logo" width="110%" />
                     </a>
                 </div>
                 <div class="mid-header-right">
                     <ul class="iso-logos">
                         <li>
-                            <img src="{{ asset('assets/logoiso/iso23.png') }}" alt="ISO 23 Certification" height="70"/>
+                            <img src="{{ asset('assets/logoiso/iso23.png') }}" alt="ISO 23 Certification"
+                                height="70" />
                         </li>
                     </ul>
                 </div>
@@ -52,6 +54,18 @@
                             </ul>
                         </li>
                         <li><a href="{{ url('/project-4-col') }}">Projects</a></li>
+                        <li><a href="#">Company Policies</a>
+                            <ul>
+                                <li><a href="{{ url('/policy/environmental-impact-control') }}">ENVIRONMENTAL IMPACT
+                                        CONTROL POLICY</a></li>
+                                <li><a href="{{ url('/policy/safe-driving-riding') }}">SAFE DRIVING AND RIDING
+                                        POLICY</a></li>
+                                <li><a href="{{ url('/policy/audit-k3ll') }}">AUDIT K3LL POLICY</a></li>
+                                <li><a href="{{ url('/policy/employee-health') }}">EMPLOYEE HEALTH POLICY</a></li>
+                                <li><a href="{{ url('/policy/smoking-alcohol-drugs') }}">POLICY ON SMOKING, ALCOHOL,
+                                        DRUGS, SHARP WEAPONS AND FIREWEAPONS</a></li>
+                            </ul>
+                        </li>
                         <li><a href="{{ url('/blog') }}">Blog</a></li>
                         <li><a href="{{ url('/contact') }}">Contact Us</a></li>
                     </ul>

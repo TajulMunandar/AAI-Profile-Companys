@@ -1,23 +1,24 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProjectController;
-use App\Http\Controllers\ClientController;
-use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\KategoriController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\EquipmentController;
-use App\Models\User;
-use App\Models\Project;
-use App\Models\Client;
-use App\Models\Service;
+use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\UserController;
 use App\Models\Article;
+use App\Models\Client;
 use App\Models\Contact;
+use App\Models\Project;
+use App\Models\Service;
+use App\Models\User;
+use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,19 +47,40 @@ Route::get('/service', function () {
 });
 
 Route::get('/service/{slug}', function ($slug) {
-    $service = \App\Models\Service::where('slug', $slug)->firstOrFail();
+    $service = Service::where('slug', $slug)->firstOrFail();
+
     return view('landing.service-detail', compact('service'));
 });
 
 Route::get('/contact', function () {
     return view('landing.contact');
 });
-Route::post('/contact', [App\Http\Controllers\ContactController::class, 'submit'])->name('contact.submit');
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::get('/equipment', function () {
-    $equipment = \App\Models\Equipment::where('is_active', true)->orderBy('order')->get();
-    return view('landing.equipment', compact('equipment'));
+    return view('landing.equipment');
 });
+
+// Company Policies Routes
+Route::get('/policy/environmental-impact-control', function () {
+    return view('landing.policy.environmental-impact-control');
+})->name('policy.environmental');
+
+Route::get('/policy/safe-driving-riding', function () {
+    return view('landing.policy.safe-driving-riding');
+})->name('policy.safe-driving');
+
+Route::get('/policy/audit-k3ll', function () {
+    return view('landing.policy.audit-k3ll');
+})->name('policy.audit-k3ll');
+
+Route::get('/policy/employee-health', function () {
+    return view('landing.policy.employee-health');
+})->name('policy.employee-health');
+
+Route::get('/policy/smoking-alcohol-drugs', function () {
+    return view('landing.policy.smoking-alcohol-drugs');
+})->name('policy.smoking-alcohol');
 
 Route::get('/pricing', function () {
     return view('landing.pricing');
@@ -73,7 +95,8 @@ Route::get('/project-4-col', function () {
 });
 
 Route::get('/project/{slug}', function ($slug) {
-    $project = \App\Models\Project::where('slug', $slug)->firstOrFail();
+    $project = Project::where('slug', $slug)->firstOrFail();
+
     return view('landing.project-detail', compact('project'));
 });
 
@@ -102,8 +125,7 @@ Route::get('/blog', [BlogController::class, 'index'])->name('blog');
 Route::get('/blog/{slug}', [BlogController::class, 'show'])->name('blog.show');
 
 // Comment Routes
-Route::post('/comments', [App\Http\Controllers\CommentController::class, 'store'])->name('comments.store');
-
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 // Dashboard (hanya bisa diakses setelah login)
 Route::get('/dashboard', function () {
@@ -138,6 +160,6 @@ Route::prefix('dashboard')->name('dashboard.')->middleware('auth')->group(functi
     Route::resource('comments', CommentController::class);
     Route::resource('contacts', ContactController::class);
     Route::resource('kategoris', KategoriController::class);
-    Route::resource('sliders', \App\Http\Controllers\SliderController::class);
+    Route::resource('sliders', SliderController::class);
     Route::resource('equipment', EquipmentController::class);
 });
