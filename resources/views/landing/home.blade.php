@@ -48,6 +48,66 @@ if (!empty($dbSliders)) {
 @endphp
 <x-hero-slider :slides="$slides" />
 
+{{-- Company Value Section --}}
+<section class="py-0" style="background: linear-gradient(135deg, #0a2463 0%, #1a3a7a 50%, #0d1f4f 100%); position: relative; overflow: hidden;">
+
+    {{-- Ambient glow background --}}
+    <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 20% 50%, rgba(255,200,50,0.07) 0%, transparent 60%), radial-gradient(ellipse at 80% 50%, rgba(100,150,255,0.06) 0%, transparent 60%); pointer-events: none;"></div>
+
+    <div class="container position-relative" style="z-index: 1;">
+        <div class="row g-0">
+
+            <div class="col-md-3" style="border-right: 0.5px solid rgba(255,255,255,0.1);">
+                <div class="d-flex align-items-center py-4 px-4 gap-3">
+                    <div style="width:48px; height:48px; flex-shrink:0; background:rgba(255,200,50,0.12); border:1px solid rgba(255,200,50,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fa fa-shield" style="font-size:1.4rem; color:#f5c842;"></i>
+                    </div>
+                    <div>
+                        <h3 class="mb-0 mx-2 text-white fw-semibold" style="letter-spacing:-0.01em;">Integrity</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" style="border-right: 0.5px solid rgba(255,255,255,0.1);">
+                <div class="d-flex align-items-center py-4 px-4 gap-3">
+                    <div style="width:48px; height:48px; flex-shrink:0; background:rgba(255,200,50,0.12); border:1px solid rgba(255,200,50,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fa fa-handshake" style="font-size:1.4rem; color:#f5c842;"></i>
+                    </div>
+                    <div>
+
+                        <h3 class="mb-0 mx-2 text-white fw-semibold" style="letter-spacing:-0.01em;">Commitment</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" style="border-right: 0.5px solid rgba(255,255,255,0.1);">
+                <div class="d-flex align-items-center py-4 px-4 gap-3">
+                    <div style="width:48px; height:48px; flex-shrink:0; background:rgba(255,200,50,0.12); border:1px solid rgba(255,200,50,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fa fa-lightbulb" style="font-size:1.4rem; color:#f5c842;"></i>
+                    </div>
+                    <div>
+
+                        <h3 class="mb-0 mx-2 text-white fw-semibold" style="letter-spacing:-0.01em;">Innovation</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="d-flex align-items-center py-4 px-4 gap-3">
+                    <div style="width:48px; height:48px; flex-shrink:0; background:rgba(255,200,50,0.12); border:1px solid rgba(255,200,50,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center;">
+                        <i class="fa fa-users" style="font-size:1.4rem; color:#f5c842;"></i>
+                    </div>
+                    <div>
+
+                        <h3 class="mb-0 mx-2 text-white fw-semibold" style="letter-spacing:-0.01em;">Teamwork</h3>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
 {{-- About Section --}}
 @php
 $aboutLists = [
@@ -209,7 +269,7 @@ if (empty($articles)) {
         @php
             $certifications = \App\Models\Certification::orderBy('order', 'asc')->get();
         @endphp
-        
+
         @if($certifications->count() > 0)
         <div class="row justify-content-center">
             @foreach($certifications as $certification)
@@ -217,9 +277,9 @@ if (empty($articles)) {
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body p-4 text-center">
                         @if($certification->image)
-                        <img src="{{ asset('storage/' . $certification->image) }}" 
-                             alt="{{ $certification->title }}" 
-                             class="img-fluid mb-3 cursor-pointer certification-image" 
+                        <img src="{{ asset('storage/' . $certification->image) }}"
+                             alt="{{ $certification->title }}"
+                             class="img-fluid mb-3 cursor-pointer certification-image"
                              style="max-height: 120px;"
                              data-src="{{ asset('storage/' . $certification->image) }}"
                              data-title="{{ $certification->title }}">
