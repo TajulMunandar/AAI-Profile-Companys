@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Validator;
 
 class ProjectController extends Controller
 {
@@ -16,9 +15,11 @@ class ProjectController extends Controller
     {
         try {
             $projects = Project::all();
+
             return view('dashboard.projects.index', compact('projects'));
         } catch (\Exception $e) {
-            Log::error('Error fetching projects: ' . $e->getMessage());
+            Log::error('Error fetching projects: '.$e->getMessage());
+
             return redirect()->back()->with('error', 'Failed to load projects.');
         }
     }
@@ -47,11 +48,13 @@ class ProjectController extends Controller
                 'project_director' => 'nullable|string|max:255',
                 'date' => 'required|date',
                 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image_2' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+                'image_3' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
 
             $imagePath = $request->file('image')->store('projects', 'public');
 
-            Project::create([
+            $projectData = [
                 'title' => $request->title,
                 'description' => $request->description,
                 'client_name' => $request->client_name,
@@ -60,13 +63,24 @@ class ProjectController extends Controller
                 'project_director' => $request->project_director,
                 'date' => $request->date,
                 'image' => $imagePath,
-            ]);
+            ];
+
+            if ($request->hasFile('image_2')) {
+                $projectData['image_2'] = $request->file('image_2')->store('projects', 'public');
+            }
+            if ($request->hasFile('image_3')) {
+                $projectData['image_3'] = $request->file('image_3')->store('projects', 'public');
+            }
+
+            Project::create($projectData);
 
             session()->flash('success', 'Project created successfully.');
+
             return redirect()->route('dashboard.projects.index');
         } catch (\Exception $e) {
-            Log::error('Error creating project: ' . $e->getMessage());
-            session()->flash('error', 'Failed to create project. ' . $e->getMessage());
+            Log::error('Error creating project: '.$e->getMessage());
+            session()->flash('error', 'Failed to create project. '.$e->getMessage());
+
             return redirect()->back()->withInput();
         }
     }
@@ -118,11 +132,23 @@ class ProjectController extends Controller
                 $project->update(['image' => $imagePath]);
             }
 
+            if ($request->file('image_2')) {
+                $image2Path = $request->file('image_2')->store('projects', 'public');
+                $project->update(['image_2' => $image2Path]);
+            }
+
+            if ($request->file('image_3')) {
+                $image3Path = $request->file('image_3')->store('projects', 'public');
+                $project->update(['image_3' => $image3Path]);
+            }
+
             session()->flash('success', 'Project updated successfully.');
+
             return redirect()->route('dashboard.projects.index');
         } catch (\Exception $e) {
-            Log::error('Error updating project: ' . $e->getMessage());
-            session()->flash('error', 'Failed to update project. ' . $e->getMessage());
+            Log::error('Error updating project: '.$e->getMessage());
+            session()->flash('error', 'Failed to update project. '.$e->getMessage());
+
             return redirect()->back()->withInput();
         }
     }
@@ -135,9 +161,11 @@ class ProjectController extends Controller
         try {
             $project->delete();
             session()->flash('success', 'Project deleted successfully.');
+
             return redirect()->route('dashboard.projects.index');
         } catch (\Exception $e) {
-            Log::error('Error deleting project: ' . $e->getMessage());
+            Log::error('Error deleting project: '.$e->getMessage());
+
             return redirect()->back()->with('error', 'Failed to delete project.');
         }
     }

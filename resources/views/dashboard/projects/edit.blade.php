@@ -50,10 +50,26 @@
             </div>
 
             <div class="mb-3">
-                <label for="image" class="form-label">Image (Kosongkan jika tidak ingin mengubah)</label>
+                <label for="image" class="form-label">Main Image (Kosongkan jika tidak ingin mengubah)</label>
                 <input type="file" class="form-control" id="image" name="image">
                 @if($project->image)
                     <img src="{{ asset('storage/' . $project->image) }}" alt="Current Image" width="100" class="mt-2">
+                @endif
+            </div>
+
+            <div class="mb-3">
+                <label for="image_2" class="form-label">Additional Image 2 (Optional)</label>
+                <input type="file" class="form-control" id="image_2" name="image_2">
+                @if($project->image_2)
+                    <img src="{{ asset('storage/' . $project->image_2) }}" alt="Current Image 2" width="100" class="mt-2">
+                @endif
+            </div>
+
+            <div class="mb-3">
+                <label for="image_3" class="form-label">Additional Image 3 (Optional)</label>
+                <input type="file" class="form-control" id="image_3" name="image_3">
+                @if($project->image_3)
+                    <img src="{{ asset('storage/' . $project->image_3) }}" alt="Current Image 3" width="100" class="mt-2">
                 @endif
             </div>
 
