@@ -209,13 +209,39 @@
         });
 
         /* ======= Odometer ======= */
+        function initOdometer() {
+            var odo = $(".odometer");
+            odo.each(function() {
+                var countNumber = $(this).attr("data-count");
+                $(this).html(countNumber);
+            });
+        }
+
+        // Function to check if element is in viewport
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Check if odometer elements are already in view on page load
+        $(document).ready(function() {
+            $('.odometer').each(function() {
+                if (isElementInViewport(this)) {
+                    initOdometer();
+                    return false; // break out of each loop
+                }
+            });
+        });
+
+        // Fallback with waypoint for when elements come into view
         $('.odometer').waypoint(
             function() {
-                var odo = $(".odometer");
-                odo.each(function() {
-                    var countNumber = $(this).attr("data-count");
-                    $(this).html(countNumber);
-                });
+                initOdometer();
             }, {
                 offset: "80%",
                 triggerOnce: true

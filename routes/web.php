@@ -19,6 +19,7 @@ use App\Http\Controllers\UserController;
 use App\Models\Article;
 use App\Models\Client;
 use App\Models\Contact;
+use App\Models\Equipment;
 use App\Models\Project;
 use App\Models\Service;
 use App\Models\User;
@@ -62,7 +63,9 @@ Route::get('/contact', function () {
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact.submit');
 
 Route::get('/equipment', function () {
-    return view('landing.equipment');
+    $equipment = Equipment::where('is_active', true)->orderBy('order')->paginate(8);
+
+    return view('landing.equipment', compact('equipment'));
 });
 
 // Company Policies Routes
@@ -95,7 +98,9 @@ Route::get('/clients', function () {
 });
 
 Route::get('/project-4-col', function () {
-    return view('landing.project-4-col');
+    $projects = Project::latest()->paginate(8);
+
+    return view('landing.project-4-col', compact('projects'));
 });
 
 Route::get('/project/{slug}', function ($slug) {

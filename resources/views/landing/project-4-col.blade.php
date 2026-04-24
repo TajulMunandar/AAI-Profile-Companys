@@ -21,9 +21,6 @@
 <section class="project-section padding bd-bottom">
     <div class="container">
         <div class="row">
-            @php
-            $projects = \App\Models\Project::latest()->get();
-            @endphp
             @forelse($projects as $project)
             <div class="col-lg-3 col-md-6 sm-padding">
                 <div class="project-item">
@@ -56,6 +53,74 @@
             </div>
             @endforelse
         </div>
+
+        {{-- Pagination --}}
+        @if ($projects->hasPages())
+        <div class="row mt-5">
+            <div class="col-12">
+                <div class="pg-wrapper">
+                    {{-- Info --}}
+                    <p class="pg-info">
+                        Menampilkan
+                        {{ ($projects->currentPage() - 1) * $projects->perPage() + 1 }}–{{ min($projects->currentPage() * $projects->perPage(), $projects->total()) }}
+                        dari {{ $projects->total() }} item
+                    </p>
+
+                    {{-- Controls --}}
+                    <nav class="pg-controls" aria-label="Pagination">
+                        {{-- Prev --}}
+                        @if ($projects->onFirstPage())
+                            <span class="pg-btn disabled" aria-disabled="true">&#8592; <span
+                                    class="pg-label">Prev</span></span>
+                        @else
+                            <a class="pg-btn nav" href="{{ $projects->previousPageUrl() }}" rel="prev">&#8592;
+                                <span class="pg-label">Prev</span></a>
+                        @endif
+
+                        @php
+                            $cur = $projects->currentPage();
+                            $last = $projects->lastPage();
+
+                            // Build page list with ellipsis
+                            $pages = [];
+                            $pages[] = 1;
+                            if ($cur > 3) {
+                                $pages[] = '...';
+                            }
+                            for ($p = max(2, $cur - 1); $p <= min($last - 1, $cur + 1); $p++) {
+                                $pages[] = $p;
+                            }
+                            if ($cur < $last - 2) {
+                                $pages[] = '...';
+                            }
+                            if ($last > 1) {
+                                $pages[] = $last;
+                            }
+                        @endphp
+
+                        @foreach ($pages as $p)
+                            @if ($p === '...')
+                                <span class="pg-dot">···</span>
+                            @elseif($p == $cur)
+                                <span class="pg-btn active" aria-current="page">{{ $p }}</span>
+                            @else
+                                <a class="pg-btn" href="{{ $projects->url($p) }}">{{ $p }}</a>
+                            @endif
+                        @endforeach
+
+                        {{-- Next --}}
+                        @if ($projects->hasMorePages())
+                            <a class="pg-btn nav" href="{{ $projects->nextPageUrl() }}" rel="next"><span
+                                    class="pg-label">Next</span> &#8594;</a>
+                        @else
+                            <span class="pg-btn disabled" aria-disabled="true"><span class="pg-label">Next</span>
+                                &#8594;</span>
+                        @endif
+                    </nav>
+                </div>
+            </div>
+        </div>
+        @endif
     </div>
 </section><!-- ./ project-section -->
 
@@ -63,3 +128,98 @@
 <x-sponsor-section />
 
 @endsection
+
+@push('css')
+<style>
+    .pg-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 1rem 0;
+    }
+
+    .pg-info {
+        font-size: 13px;
+        color: #6c757d;
+        margin: 0;
+    }
+
+    .pg-controls {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex-wrap: wrap;
+    }
+
+    .pg-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 36px;
+        height: 36px;
+        padding: 0 10px;
+        border: 1px solid #dee2e6;
+        border-radius: 6px;
+        background: #fff;
+        color: #333;
+        font-size: 13px;
+        text-decoration: none;
+        transition: background 0.15s, border-color 0.15s;
+        cursor: pointer;
+    }
+
+    .pg-btn:hover:not(.disabled):not(.active) {
+        background: #f5f5f5;
+        border-color: #aaa;
+        color: #0a2463;
+    }
+
+    .pg-btn.active {
+        background: #0a2463;
+        border-color: #0a2463;
+        color: #fff;
+        font-weight: 600;
+        pointer-events: none;
+    }
+
+    .pg-btn.disabled {
+        color: #adb5bd;
+        border-color: #e9ecef;
+        pointer-events: none;
+    }
+
+    .pg-dot {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 36px;
+        height: 36px;
+        color: #aaa;
+        font-size: 14px;
+    }
+
+    @media (max-width: 576px) {
+        .pg-wrapper {
+            justify-content: center;
+        }
+
+        .pg-info {
+            width: 100%;
+            text-align: center;
+        }
+
+        .pg-label {
+            display: none;
+        }
+
+        .pg-btn {
+            min-width: 32px;
+            height: 32px;
+            padding: 0 8px;
+            font-size: 12px;
+        }
+    }
+</style>
+@endpush
