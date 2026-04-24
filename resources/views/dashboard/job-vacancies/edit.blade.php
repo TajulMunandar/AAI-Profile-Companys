@@ -74,6 +74,16 @@
                                                value="{{ old('order', $jobVacancy->order) }}" min="0">
                                         <div class="form-text">Lower number appears first</div>
                                     </div>
+
+                                    <!-- Max Apply -->
+                                    <div class="mb-3">
+                                        <label for="max_apply" class="form-label fw-semibold">
+                                            <i class="ti ti-user-plus me-1"></i>Max Applications
+                                        </label>
+                                        <input type="number" class="form-control" id="max_apply" name="max_apply"
+                                               value="{{ old('max_apply', $jobVacancy->max_apply) }}" min="1" placeholder="Leave empty for unlimited">
+                                        <div class="form-text">Job will auto-close when this limit is reached</div>
+                                    </div>
                                 </div>
                             </div>
 

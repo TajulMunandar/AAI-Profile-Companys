@@ -60,7 +60,7 @@ if (!empty($dbSliders)) {
             <div class="col-md-3" style="border-right: 0.5px solid rgba(255,255,255,0.1);">
                 <div class="d-flex align-items-center py-4 px-4 gap-3">
                     <div style="width:48px; height:48px; flex-shrink:0; background:rgba(255,200,50,0.12); border:1px solid rgba(255,200,50,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center;">
-                        <i class="fa fa-shield" style="font-size:1.4rem; color:#f5c842;"></i>
+                        <i class="fa fa-shield" style="font-size:1.8rem; color:#f5c842;"></i>
                     </div>
                     <div>
                         <h3 class="mb-0 mx-2 text-white fw-semibold" style="letter-spacing:-0.01em;">Integrity</h3>
@@ -71,7 +71,7 @@ if (!empty($dbSliders)) {
             <div class="col-md-3" style="border-right: 0.5px solid rgba(255,255,255,0.1);">
                 <div class="d-flex align-items-center py-4 px-4 gap-3">
                     <div style="width:48px; height:48px; flex-shrink:0; background:rgba(255,200,50,0.12); border:1px solid rgba(255,200,50,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center;">
-                        <i class="fa fa-handshake" style="font-size:1.4rem; color:#f5c842;"></i>
+                        <i class="fa fa-handshake" style="font-size:1.8rem; color:#f5c842;"></i>
                     </div>
                     <div>
 
@@ -83,7 +83,7 @@ if (!empty($dbSliders)) {
             <div class="col-md-3" style="border-right: 0.5px solid rgba(255,255,255,0.1);">
                 <div class="d-flex align-items-center py-4 px-4 gap-3">
                     <div style="width:48px; height:48px; flex-shrink:0; background:rgba(255,200,50,0.12); border:1px solid rgba(255,200,50,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center;">
-                        <i class="fa fa-lightbulb" style="font-size:1.4rem; color:#f5c842;"></i>
+                        <i class="fa fa-lightbulb" style="font-size:1.8rem; color:#f5c842;"></i>
                     </div>
                     <div>
 
@@ -95,7 +95,7 @@ if (!empty($dbSliders)) {
             <div class="col-md-3">
                 <div class="d-flex align-items-center py-4 px-4 gap-3">
                     <div style="width:48px; height:48px; flex-shrink:0; background:rgba(255,200,50,0.12); border:1px solid rgba(255,200,50,0.25); border-radius:12px; display:flex; align-items:center; justify-content:center;">
-                        <i class="fa fa-users" style="font-size:1.4rem; color:#f5c842;"></i>
+                        <i class="fa fa-users" style="font-size:1.8rem; color:#f5c842;"></i>
                     </div>
                     <div>
 

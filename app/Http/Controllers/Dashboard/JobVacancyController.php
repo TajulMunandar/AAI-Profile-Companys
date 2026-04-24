@@ -42,6 +42,7 @@ class JobVacancyController extends Controller
                 'requirements' => 'nullable|string',
                 'is_active' => 'nullable|boolean',
                 'order' => 'nullable|integer',
+                'max_apply' => 'nullable|integer|min:1',
             ]);
 
             JobVacancy::create([
@@ -50,6 +51,7 @@ class JobVacancyController extends Controller
                 'requirements' => $request->requirements,
                 'is_active' => $request->is_active ?? true,
                 'order' => $request->order ?? 0,
+                'max_apply' => $request->max_apply,
             ]);
 
             session()->flash('success', 'Job vacancy created successfully.');
@@ -83,6 +85,7 @@ class JobVacancyController extends Controller
                 'requirements' => 'nullable|string',
                 'is_active' => 'nullable|boolean',
                 'order' => 'nullable|integer',
+                'max_apply' => 'nullable|integer|min:1',
             ]);
 
             $jobVacancy->update([
@@ -91,6 +94,7 @@ class JobVacancyController extends Controller
                 'requirements' => $request->requirements,
                 'is_active' => $request->is_active ?? false,
                 'order' => $request->order ?? 0,
+                'max_apply' => $request->max_apply,
             ]);
 
             session()->flash('success', 'Job vacancy updated successfully.');

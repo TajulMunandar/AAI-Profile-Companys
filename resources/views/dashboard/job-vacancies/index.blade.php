@@ -19,6 +19,7 @@
                                 <th>Title</th>
                                 <th>Status</th>
                                 <th>Order</th>
+                                <th>Max Apply</th>
                                 <th>Applications</th>
                                 <th class="text-center">Actions</th>
                             </tr>
@@ -38,7 +39,19 @@
                                     @endif
                                 </td>
                                 <td>{{ $jobVacancy->order }}</td>
-                                <td>{{ $jobVacancy->applications->count() }}</td>
+                                <td>
+                                    @if($jobVacancy->max_apply)
+                                        {{ $jobVacancy->max_apply }}
+                                    @else
+                                        <span class="text-muted">-</span>
+                                    @endif
+                                </td>
+                                <td>
+                                    {{ $jobVacancy->applications->count() }}
+                                    @if($jobVacancy->max_apply)
+                                        <span class="text-muted">/ {{ $jobVacancy->max_apply }}</span>
+                                    @endif
+                                </td>
                                 <td class="text-center">
                                     <div class="d-flex gap-1 justify-content-center">
                                         <a href="{{ route('dashboard.job-vacancies.edit', $jobVacancy->id) }}" class="btn btn-sm btn-icon btn-light-warning" title="Edit">
@@ -56,7 +69,7 @@
                             </tr>
                             @empty
                             <tr>
-                                <td colspan="6" class="text-center py-5">
+                                <td colspan="7" class="text-center py-5">
                                     <div class="text-muted">
                                         <i class="ti ti-file-x fs-1 d-block mb-2"></i>
                                         <p class="mb-0">No job vacancies found</p>

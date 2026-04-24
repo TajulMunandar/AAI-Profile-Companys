@@ -36,6 +36,9 @@ class CareerController extends Controller
                 'cv_file' => $cvPath,
             ]);
 
+            // Check if max applications reached and close the job vacancy
+            $jobVacancy->checkAndCloseIfMaxReached();
+
             session()->flash('success', 'Your application has been submitted successfully!');
 
             return redirect()->route('career');
