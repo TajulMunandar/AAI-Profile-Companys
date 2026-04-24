@@ -7,7 +7,7 @@
 
     {{-- Page Header --}}
     <section class="page-header padding"
-        style="background-image: url('{{ asset('assets/FotoHeroSection/AAI0008.jpg') }}'); background-size: cover; background-position: center;">
+        style="background-image: url('{{ asset('assets/bg-landing.jpg') }}'); background-size: cover; background-position: center;">
         <div class="overlay"></div>
         <div class="container">
             <div class="section-heading mt-40 text-center">
